@@ -6,3 +6,4 @@
 *.cbp
 *.gch
 ./src/test/test
+./src/lib*
