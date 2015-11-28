@@ -152,7 +152,6 @@ public:
 
     void executer()
     {
-        // Appel de la fonction de l'IA qui agit
         ia->setScore(ia->getScore() + (rand()%7));
     }
 
@@ -172,8 +171,6 @@ int main(void)
     jeu.ajoutSystemeAffichage(new AffichageStd());
     srand(time(nullptr));
 
-    ia = nullptr;   // Pas de fuite car le pointeur est connu dans le jeu
-
     // Algorithme de base pour lancer un jeu
     jeu.demarrer();
     jeu.lancerPartie();
@@ -181,19 +178,4 @@ int main(void)
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
