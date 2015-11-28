@@ -18,7 +18,6 @@ public:
     JoueurIA();
 
     void lancerStrategies();
-
     virtual ~JoueurIA();
 };
 

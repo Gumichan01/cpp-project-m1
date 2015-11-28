@@ -26,7 +26,6 @@ public:
     virtual ~StrategieIA();
 };
 
-
 #endif // STRAT_HPP
 
 
