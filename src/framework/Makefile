@@ -21,7 +21,6 @@ LIB_TARGET=libDiderot.a
 
 .PHONY : clean
 
-
 all : library
 library: $(LIB_TARGET)
 
