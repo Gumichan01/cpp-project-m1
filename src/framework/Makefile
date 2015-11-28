@@ -17,9 +17,8 @@ FRAMEWORK_PATH=./
 
 
 # Cibles
-LIB_TARGET=libDiderot.a
+LIB_TARGET=../libDiderot.a
 
-.PHONY : clean
 
 all : library
 library: $(LIB_TARGET)
@@ -33,21 +32,21 @@ $(LIB_TARGET) : $(OBJS)
 # Compilation des objets
 #
 
-Afficheur.o : $(FRAMEWORK_PATH)Afficheur.cpp $(FRAMEWORK_PATH)Afficheur.hpp
+Afficheur.o: $(FRAMEWORK_PATH)Afficheur.cpp $(FRAMEWORK_PATH)Afficheur.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 
-Jeu.o : $(FRAMEWORK_PATH)Jeu.cpp $(FRAMEWORK_PATH)Jeu.hpp
+Jeu.o: $(FRAMEWORK_PATH)Jeu.cpp $(FRAMEWORK_PATH)Jeu.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-Joueur.o : $(FRAMEWORK_PATH)Joueur.cpp $(FRAMEWORK_PATH)Joueur.hpp
+Joueur.o: $(FRAMEWORK_PATH)Joueur.cpp $(FRAMEWORK_PATH)Joueur.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-JoueurIA.o : $(FRAMEWORK_PATH)JoueurIA.cpp $(FRAMEWORK_PATH)JoueurIA.hpp \
+JoueurIA.o: $(FRAMEWORK_PATH)JoueurIA.cpp $(FRAMEWORK_PATH)JoueurIA.hpp \
 $(FRAMEWORK_PATH)Joueur.hpp $(FRAMEWORK_PATH)Strategie.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-Strategie.o : $(FRAMEWORK_PATH)Strategie.cpp $(FRAMEWORK_PATH)Strategie.hpp \
+Strategie.o: $(FRAMEWORK_PATH)Strategie.cpp $(FRAMEWORK_PATH)Strategie.hpp \
 $(FRAMEWORK_PATH)JoueurIA.hpp 
 	$(CC) -c -o $@ $< $(CFLAGS)
 
@@ -56,7 +55,13 @@ $(FRAMEWORK_PATH)JoueurIA.hpp
 # Netoyage
 #
 
+.PHONY : clean clear
+
 clean:
 	rm -f *.o
+
+clear: clean
+	rm $(LIB_TARGET)
+
 
 
