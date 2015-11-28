@@ -6,7 +6,7 @@
 
 # Compilateur
 CC=g++
-CFLAGS=-Wall -Wextra --std=c++11 -g
+CFLAGS=-Wall --std=c++11 -g
 
 # Objets 
 SRC=Afficheur.cpp Jeu.cpp Joueur.cpp JoueurIA.cpp Strategie.cpp
@@ -36,7 +36,8 @@ Afficheur.o: $(FRAMEWORK_PATH)Afficheur.cpp $(FRAMEWORK_PATH)Afficheur.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 
-Jeu.o: $(FRAMEWORK_PATH)Jeu.cpp $(FRAMEWORK_PATH)Jeu.hpp
+Jeu.o: $(FRAMEWORK_PATH)Jeu.cpp $(FRAMEWORK_PATH)Jeu.hpp \
+$(FRAMEWORK_PATH)Joueur.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 Joueur.o: $(FRAMEWORK_PATH)Joueur.cpp $(FRAMEWORK_PATH)Joueur.hpp
