@@ -2,8 +2,6 @@
 #ifndef AFFICHEUR_HPP
 #define AFFICHEUR_HPP
 
-#include <iostream>
-
 
 class Afficheur
 {

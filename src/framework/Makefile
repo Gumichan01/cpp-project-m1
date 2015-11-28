@@ -61,7 +61,7 @@ clean:
 	rm -f *.o
 
 clear: clean
-	rm $(LIB_TARGET)
+	rm -f $(LIB_TARGET)
 
 
 
