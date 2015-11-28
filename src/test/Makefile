@@ -11,7 +11,7 @@ OBJS=$(SRC:.cpp=.o)
 
 
 # Executable
-EXE=test
+EXE=test-framework
 
 # Bibliothèque
 FRAMEWORK_PATH=../framework/
