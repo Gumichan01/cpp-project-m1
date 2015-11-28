@@ -3,10 +3,10 @@
 
 == Compilation == 
 
-Exécuter la commande :
-*$ bash compil.sh*
+Allez dans le répertoir *src/* et exécutez la commande :
+*$ make*
 
-Ce script va comiler le framework et générer un fichier *.a* qui sera utilisé 
-par le rogramme de test qui est lui-même compilé
+Cel a va générer un fichier bibliothèque *libDiderot.a* ainsi que le fichier 
+test executable *test-framework*.
 
 
