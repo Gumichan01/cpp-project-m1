@@ -3,7 +3,7 @@
 
 # Compilateur
 CC=g++
-CFLAGS=-Wall -Wextra --std=c++11 -g
+CFLAGS=-Wall --std=c++11 -g
 
 # Objets 
 SRC=main.cpp

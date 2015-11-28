@@ -24,28 +24,72 @@ public:
 
     void afficherMenu()
     {
-        cout << "Programme de test du framework" << endl;
+        cout << "Démarrage du programme test" << endl;
+        cout << "Jeu en cours..." << endl;
     }
 
     void afficherJeu()
     {
-        cout << "Jeu en cours..." << endl;
-        cout << "= Etat du jeu =" << endl;
+        cout << "= Affichage du jeu OK =" << endl;
     }
 
     ~AffichageStd(){}
 };
 
 
+class JeuTest : public Jeu
+{
+
+public:
+
+    JeuTest():Jeu(){}
+
+    void demarrer()
+    {
+        //Affichage menu
+        for(vector<Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
+        {
+            liste_affichage[i]->afficherMenu();
+        }
+    }
+
+    void lancerPartie()
+    {
+        const int N = 10;
+        int compteur = 0;
+
+        while(compteur < N)
+        {
+            // Faire évoluer les joueurs
+            // Affichage jeu
+            for(vector<Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
+            {
+                liste_affichage[i]->afficherJeu();
+            }
+
+            compteur++;
+        }
+    }
+
+    void arret()
+    {
+        cout << "... Fin du jeu" << endl;
+    }
+
+    ~JeuTest(){}
+};
+
 
 int main(void)
 {
-    Afficheur *afficheur = new AffichageStd();
+    JeuTest jeu;
+    jeu.ajoutSystemeAffichage(new AffichageStd());
 
-    afficheur->afficherMenu();
-    afficheur->afficherJeu();
+    // Algorithme de base pour lancer un jeu
+    jeu.demarrer();
+    jeu.lancerPartie();
+    jeu.arret();
 
-    delete afficheur;
     return 0;
 }
 
