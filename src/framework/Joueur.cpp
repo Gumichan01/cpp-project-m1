@@ -2,7 +2,7 @@
 #include "Joueur.hpp"
 
 
-Joueur::Joueur(std::string n) : nom(n)
+Joueur::Joueur(std::string n) : nom(n), score(0)
 {
     // Empty
 }

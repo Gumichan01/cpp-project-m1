@@ -1,5 +1,6 @@
 
 #include "Jeu.hpp"
+#include "Joueur.hpp"
 #include "Afficheur.hpp"
 
 using namespace std;
@@ -33,9 +34,11 @@ Jeu::~Jeu()
     {
         delete liste_affichage[i];
     }
+    liste_affichage.clear();
 
     for(vector<Joueur *>::size_type i = 0; i < joueurs.size(); i++)
     {
-        delete liste_affichage[i];
+        delete joueurs[i];
     }
+    joueurs.clear();
 }
