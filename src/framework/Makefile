@@ -39,6 +39,9 @@ Jeu.o : $(FRAMEWORK_PATH)Jeu.cpp $(FRAMEWORK_PATH)Jeu.hpp
 Joueur.o : $(FRAMEWORK_PATH)Joueur.cpp $(FRAMEWORK_PATH)Joueur.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
+JoueurIA.o : $(FRAMEWORK_PATH)JoueurIA.cpp $(FRAMEWORK_PATH)JoueurIA.hpp \
+$(FRAMEWORK_PATH)Joueur.hpp $(FRAMEWORK_PATH)Strategie.hpp
+	$(CC) -c -o $@ $< $(CFLAGS)
 
 clean:
 	rm -f *.o
