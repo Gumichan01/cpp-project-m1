@@ -3,14 +3,17 @@
 # Makefile Projet C++
 #
 
+.PHONY: library test
 
 all: library test
 
-test:
-	@make -f Makefile.test
 
 library:
-	@make -f Makefile.framework
+	make -f Makefile.framework
+
+test:
+	make -f Makefile.test
+
 
 
 .PHONY : clear clean clean-framework clean-test clear-framework clear-test

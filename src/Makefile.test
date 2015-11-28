@@ -8,7 +8,7 @@
 
 # Compilateur
 CC=g++
-CFLAGS=-Wall --std=c++0x -g
+CFLAGS=-Wall --std=c++11 -g
 
 # Objets 
 SRC=main.cpp
@@ -17,16 +17,19 @@ OBJS=$(SRC:.cpp=.o)
 
 # Executable
 TEST_PATH=./test/
-EXE=test-framework
+TEST_EXE=test-framework
 
 # Bibliothèque
 LIB_TARGET=libDiderot.a
 
 
-all: $(EXE)
+.PHONY : clean clear $(LIB_TARGET)
 
-$(EXE): $(OBJS) $(LIB_TARGET)
-	$(CC) -o $@ $(OBJS) $(LIB_TARGET) $(CFLAGS)
+all: $(TEST_EXE)
+
+$(TEST_EXE): $(OBJS) $(LIB_TARGET)
+	@echo " = "$@" - Edition de lien "
+	@$(CC) -o $@ $(OBJS) $(LIB_TARGET) $(CFLAGS)
 
 
 #
@@ -34,18 +37,21 @@ $(EXE): $(OBJS) $(LIB_TARGET)
 #
 
 main.o: $(TEST_PATH)main.cpp
-	$(CC) -c -o $@ $< $(CFLAGS)
+	@echo " = Compiler "$<" vers "$@
+	@$(CC) -c -o $@ $< $(CFLAGS)
 
 
 #
 # Netoyage
 #
 
-.PHONY : clean clear
 
 clean:
-	rm -f *.o
+	@echo " = Supprimer les fichiers intermédaires"
+	@rm -f *.o
 
 clear: clean
-	rm -f $(EXE)
+	@echo " = Nettoyage du repertoire "$(TEST_PATH)
+	@rm -f $(TEST_EXE)
+
 
