@@ -5,3 +5,4 @@
 *.layout
 *.cbp
 *.gch
+./src/test/test
