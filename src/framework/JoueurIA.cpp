@@ -7,7 +7,7 @@ using namespace std;
 
 int JoueurIA::id = 1;
 
-JoueurIA::JoueurIA() : Joueur("IA " + (id)++)
+JoueurIA::JoueurIA() : Joueur("IA")
 {
     // Empty
 }
