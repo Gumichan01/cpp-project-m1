@@ -131,7 +131,8 @@ public:
 
     void jouer()
     {
-        score += rand()%7;
+        //lancerStrategies();   // Lance toutes les strategies
+        lancerStrat(0);         // Lance une strategie indexée
     }
 
     bool gagne()
@@ -143,14 +144,35 @@ public:
 };
 
 
+class StrategieTest: public StrategieIA
+{
+public:
+
+    StrategieTest(JoueurIATest* j): StrategieIA(j){}
+
+    void executer()
+    {
+        // Appel de la fonction de l'IA qui agit
+        ia->setScore(ia->getScore() + (rand()%7));
+    }
+
+    ~StrategieTest(){}
+};
+
+
 int main(void)
 {
     JeuTest jeu;
 
+    JoueurIATest *ia = new JoueurIATest();
+    ia->ajoutStrategie(new StrategieTest(ia));
+
     jeu.ajoutJoueur(new JoueurTest("toto"));
-    jeu.ajoutJoueur(new JoueurIATest());
+    jeu.ajoutJoueur(ia);
     jeu.ajoutSystemeAffichage(new AffichageStd());
     srand(time(nullptr));
+
+    ia = nullptr;   // Pas de fuite car le pointeur est connu dans le jeu
 
     // Algorithme de base pour lancer un jeu
     jeu.demarrer();
