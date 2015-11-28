@@ -1,6 +1,6 @@
 
-#ifndef AFFICHEUR_H
-#define AFFICHEUR_H
+#ifndef AFFICHEUR_HPP
+#define AFFICHEUR_HPP
 
 #include <iostream>
 
@@ -13,7 +13,7 @@ public:
     virtual void afficherMenu() = 0;
     virtual void afficherJeu() = 0;
 
+    virtual ~Afficheur();
 };
-
 
 #endif
