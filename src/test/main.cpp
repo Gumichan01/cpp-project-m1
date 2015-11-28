@@ -33,7 +33,7 @@ public:
 
     void afficherJeu()
     {
-        cout << "= Affichage du jeu OK = Etat " << (etat++) << endl;
+        cout << " = Affichage du jeu OK = Etat " << (etat++) << endl << endl;
     }
 
     ~AffichageStd() {}
@@ -66,6 +66,9 @@ public:
             for(vector<Joueur *>::size_type i = 0; i < joueurs.size(); i++)
             {
                 joueurs[i]->jouer();
+
+                cout << "Joueur " << joueurs[i]->getNom() << " a désormais "
+                     << joueurs[i]->getScore() << " points." << endl;
 
                 if(joueurs[i]->gagne())
                 {
@@ -120,12 +123,32 @@ public:
 };
 
 
+class JoueurIATest : public JoueurIA
+{
+public:
+
+    JoueurIATest() : JoueurIA() {}
+
+    void jouer()
+    {
+        score += rand()%7;
+    }
+
+    bool gagne()
+    {
+        return score > MAX_SCORE*2;
+    }
+
+    virtual ~JoueurIATest() {}
+};
+
 
 int main(void)
 {
     JeuTest jeu;
 
     jeu.ajoutJoueur(new JoueurTest("toto"));
+    jeu.ajoutJoueur(new JoueurIATest());
     jeu.ajoutSystemeAffichage(new AffichageStd());
     srand(time(nullptr));
 
