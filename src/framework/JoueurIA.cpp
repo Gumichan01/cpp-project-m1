@@ -22,6 +22,23 @@ void JoueurIA::lancerStrategies()
 }
 
 
+void JoueurIA::lancerStrat(unsigned int index)
+{
+    if(index < strats.size() && strats[index] != nullptr)
+        strats[index]->executer();
+}
+
+
+bool JoueurIA::ajoutStrategie(StrategieIA * st)
+{
+    if(st == nullptr)
+        return false;
+
+    strats.push_back(st);
+    return true;
+}
+
+
 JoueurIA::~JoueurIA()
 {
     for(vector<StrategieIA *>::size_type i = 0; i < strats.size(); i++)

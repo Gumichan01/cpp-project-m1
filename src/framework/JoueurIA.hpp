@@ -18,6 +18,9 @@ public:
     JoueurIA();
 
     void lancerStrategies();
+    void lancerStrat(unsigned int index);
+    bool ajoutStrategie(StrategieIA * st);
+
     virtual ~JoueurIA();
 };
 

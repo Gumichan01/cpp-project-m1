@@ -30,3 +30,10 @@ int Joueur::getScore()
 {
     return score;
 }
+
+
+void Joueur::setScore(int newScore)
+{
+    if(newScore >= 0)
+        score = newScore;
+}

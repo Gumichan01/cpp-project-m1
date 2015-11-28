@@ -24,6 +24,8 @@ public:
     std::string getNom();
     int getScore();
 
+    void setScore(int newScore);
+
     ~Joueur();
 };
 

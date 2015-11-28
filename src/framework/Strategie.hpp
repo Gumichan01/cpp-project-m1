@@ -17,6 +17,7 @@ public :
 
 class StrategieIA : virtual public Strategie
 {
+protected:
     JoueurIA * ia;
 
 public:
