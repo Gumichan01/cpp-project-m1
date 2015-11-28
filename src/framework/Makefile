@@ -27,9 +27,12 @@ FRAMEWORK_PATH=./
 #	@ar rcs 
 
 Afficheur.o : $(FRAMEWORK_PATH)Afficheur.cpp $(FRAMEWORK_PATH)Afficheur.hpp
-	g++ -c -o $@ $< $(CFLAGS)
-	
-	
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+
+Jeu.o : $(FRAMEWORK_PATH)Jeu.cpp $(FRAMEWORK_PATH)Jeu.hpp
+	$(CC) -c -o $@ $< $(CFLAGS)
+
 	
 clean:
 	rm -f *.o
