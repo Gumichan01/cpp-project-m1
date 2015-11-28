@@ -1,1 +1,12 @@
-Projet C++ - Framework de développement de jeu
+ = Projet C++ - Framework de développement de jeu = 
+
+
+== Compilation == 
+
+Exécuter la commande :
+*$ bash compil.sh*
+
+Ce script va comiler le framework et générer un fichier *.a* qui sera utilisé 
+par le rogramme de test qui est lui-même compilé
+
+
