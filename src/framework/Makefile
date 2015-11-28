@@ -16,15 +16,13 @@ FRAMEWORK_PATH=./
 
 
 # Cibles
-#LIB_TARGET=libDiderot.a
+LIB_TARGET=libDiderot.a
 
-#all : library
+all : library
+library: $(LIB_TARGET)
 
-#library: $(LIB_TARGET)
-
-
-#$(LIB_TARGET) : $(OBJS)
-#	@ar rcs 
+$(LIB_TARGET) : $(OBJS)
+	ar rcs $@ $^
 
 .PHONY : clean
 
