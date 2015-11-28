@@ -5,5 +5,5 @@
 *.layout
 *.cbp
 *.gch
-./src/test/test
+src/test/test
 ./src/lib*
