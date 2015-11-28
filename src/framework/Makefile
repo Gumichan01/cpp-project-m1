@@ -9,7 +9,8 @@ CC=g++
 CFLAGS=-Wall -Wextra --std=c++11 -g
 
 # Objets 
-OBJS=Afficheur.o Jeu.o Joueur.o JoueurIA.o Strategie.o
+SRC=Afficheur.cpp Jeu.cpp Joueur.cpp JoueurIA.cpp Strategie.cpp
+OBJS=$(SRC:.cpp=.o)
 
 # Chemin
 FRAMEWORK_PATH=./
@@ -18,13 +19,14 @@ FRAMEWORK_PATH=./
 # Cibles
 LIB_TARGET=libDiderot.a
 
+.PHONY : clean
+
 all : library
 library: $(LIB_TARGET)
 
 $(LIB_TARGET) : $(OBJS)
 	ar rcs $@ $^
 
-.PHONY : clean
 
 
 #
