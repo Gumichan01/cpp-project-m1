@@ -16,7 +16,7 @@ FRAMEWORK_PATH=./
 
 
 # Cibles
-#LIB_TARGET=libFramework.a
+#LIB_TARGET=libDiderot.a
 
 #all : library
 
@@ -28,6 +28,10 @@ FRAMEWORK_PATH=./
 
 .PHONY : clean
 
+
+#
+# Compilation des objets
+#
 
 Afficheur.o : $(FRAMEWORK_PATH)Afficheur.cpp $(FRAMEWORK_PATH)Afficheur.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
@@ -42,6 +46,15 @@ Joueur.o : $(FRAMEWORK_PATH)Joueur.cpp $(FRAMEWORK_PATH)Joueur.hpp
 JoueurIA.o : $(FRAMEWORK_PATH)JoueurIA.cpp $(FRAMEWORK_PATH)JoueurIA.hpp \
 $(FRAMEWORK_PATH)Joueur.hpp $(FRAMEWORK_PATH)Strategie.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
+
+Strategie.o : $(FRAMEWORK_PATH)Strategie.cpp $(FRAMEWORK_PATH)Strategie.hpp \
+$(FRAMEWORK_PATH)JoueurIA.hpp 
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+
+#
+# Netoyage
+#
 
 clean:
 	rm -f *.o
