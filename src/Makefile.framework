@@ -2,22 +2,23 @@
 #
 # Makefile Projet C++
 #
+# Pour générer le fichier bibliothèque
 #
 
 # Compilateur
 CC=g++
-CFLAGS=-Wall --std=c++11 -g
+CFLAGS=-Wall --std=c++0x -g
 
 # Objets 
 SRC=Afficheur.cpp Jeu.cpp Joueur.cpp JoueurIA.cpp Strategie.cpp
 OBJS=$(SRC:.cpp=.o)
 
 # Chemin
-FRAMEWORK_PATH=./
+FRAMEWORK_PATH=./framework/
 
 
 # Cibles
-LIB_TARGET=../libDiderot.a
+LIB_TARGET=libDiderot.a
 
 
 all : library

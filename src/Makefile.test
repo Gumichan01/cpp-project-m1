@@ -1,9 +1,14 @@
 
 
+#
+# Makefile Projet C++
+#
+# Pour générer un petit programme de test
+#
 
 # Compilateur
 CC=g++
-CFLAGS=-Wall --std=c++11 -g
+CFLAGS=-Wall --std=c++0x -g
 
 # Objets 
 SRC=main.cpp
@@ -11,16 +16,16 @@ OBJS=$(SRC:.cpp=.o)
 
 
 # Executable
+TEST_PATH=./test/
 EXE=test-framework
 
 # Bibliothèque
-FRAMEWORK_PATH=../framework/
-LIB_TARGET=../libDiderot.a
+LIB_TARGET=libDiderot.a
 
 
 all: $(EXE)
 
-$(EXE): $(OBJS)
+$(EXE): $(OBJS) $(LIB_TARGET)
 	$(CC) -o $@ $(OBJS) $(LIB_TARGET) $(CFLAGS)
 
 
@@ -28,7 +33,7 @@ $(EXE): $(OBJS)
 # Objet principal
 #
 
-main.o: main.cpp
+main.o: $(TEST_PATH)main.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 
