@@ -26,6 +26,9 @@ FRAMEWORK_PATH=./
 #$(LIB_TARGET) : $(OBJS)
 #	@ar rcs 
 
+.PHONY : clean
+
+
 Afficheur.o : $(FRAMEWORK_PATH)Afficheur.cpp $(FRAMEWORK_PATH)Afficheur.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
@@ -33,6 +36,11 @@ Afficheur.o : $(FRAMEWORK_PATH)Afficheur.cpp $(FRAMEWORK_PATH)Afficheur.hpp
 Jeu.o : $(FRAMEWORK_PATH)Jeu.cpp $(FRAMEWORK_PATH)Jeu.hpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-	
+Joueur.o : $(FRAMEWORK_PATH)Joueur.cpp $(FRAMEWORK_PATH)Joueur.hpp
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+
 clean:
 	rm -f *.o
+
+
