@@ -7,3 +7,6 @@
 *.gch
 src/test/test*
 ./src/lib*
+*html
+*.tex
+*tar.gz
