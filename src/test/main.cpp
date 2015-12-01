@@ -131,8 +131,7 @@ public:
 
     void jouer()
     {
-        //lancerStrategies();   // Lance toutes les strategies
-        lancerStrat(0);         // Lance une strategie indexée
+        strat->executer();
     }
 
     bool gagne()

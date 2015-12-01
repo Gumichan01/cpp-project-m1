@@ -5,27 +5,16 @@
 
 using namespace std;
 
-int JoueurIA::id = 1;
 
-JoueurIA::JoueurIA() : Joueur("IA")
+JoueurIA::JoueurIA() : Joueur("IA"), strat(nullptr)
 {
     // Empty
 }
 
-void JoueurIA::lancerStrategies()
-{
-    for(vector<StrategieIA *>::size_type i = 0; i != strats.size(); i++)
-    {
-        if(strats[i] != nullptr)
-            strats[i]->executer();
-    }
-}
 
-
-void JoueurIA::lancerStrat(unsigned int index)
+void JoueurIA::jouer()
 {
-    if(index < strats.size() && strats[index] != nullptr)
-        strats[index]->executer();
+    strat->executer();
 }
 
 
@@ -34,17 +23,14 @@ bool JoueurIA::ajoutStrategie(StrategieIA * st)
     if(st == nullptr)
         return false;
 
-    strats.push_back(st);
+    delete strat;
+    strat = st;
+
     return true;
 }
 
 
 JoueurIA::~JoueurIA()
 {
-    for(vector<StrategieIA *>::size_type i = 0; i < strats.size(); i++)
-    {
-        delete strats[i];
-        strats[i] = nullptr;
-    }
-    strats.clear();
+    // Empty
 }

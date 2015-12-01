@@ -10,16 +10,15 @@ class StrategieIA;
 
 class JoueurIA : public Joueur
 {
+protected:
     /// @todo Refaire la structure interne
-    std::vector<StrategieIA *> strats;
-    static int id;
+    StrategieIA * strat;
 
 public:
 
     JoueurIA();
 
-    void lancerStrategies();
-    void lancerStrat(unsigned int index);
+    void jouer();
     bool ajoutStrategie(StrategieIA * st);
 
     virtual ~JoueurIA();
