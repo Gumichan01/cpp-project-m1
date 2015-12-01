@@ -34,11 +34,12 @@ Jeu::~Jeu()
     {
         delete liste_affichage[i];
     }
-    liste_affichage.clear();
 
     for(vector<Joueur *>::size_type i = 0; i < joueurs.size(); i++)
     {
         delete joueurs[i];
     }
+
+    liste_affichage.clear();
     joueurs.clear();
 }
