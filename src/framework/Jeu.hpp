@@ -22,13 +22,13 @@ public:
     virtual void lancerPartie() = 0;
     virtual void arret() = 0;
 
-    /** @todo   Ajouter des méthodes de suppression et
-                une méthode de mise à jour des affichages */
     bool ajoutJoueur(Joueur *j);
     bool ajoutSystemeAffichage(Afficheur *a);
 
+    Joueur * supprJoueur(unsigned int indice);
+    Afficheur * supprSystemeAffichage(unsigned int indice);
+
     virtual ~Jeu();
 };
-
 
 #endif

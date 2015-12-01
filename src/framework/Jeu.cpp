@@ -28,6 +28,28 @@ bool Jeu::ajoutJoueur(Joueur *j)
 }
 
 
+Joueur * Jeu::supprJoueur(unsigned int indice)
+{
+    if(indice > joueurs.size())
+        return nullptr;
+
+    Joueur *j = joueurs[indice];
+    joueurs.erase(joueurs.begin() + indice);
+    return j;
+}
+
+
+Afficheur * Jeu::supprSystemeAffichage(unsigned int indice)
+{
+    if(indice > liste_affichage.size())
+        return nullptr;
+
+    Afficheur * aff = liste_affichage[indice];
+    liste_affichage.erase(liste_affichage.begin() + indice);
+    return aff;
+}
+
+
 Jeu::~Jeu()
 {
     for(vector<Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
