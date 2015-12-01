@@ -15,8 +15,7 @@ protected:
 
 public:
 
-    Joueur(std::string n);
-    Joueur(std::string n, int sc);
+    Joueur(std::string n, int sc = 0);
 
     virtual void jouer() = 0;   // le joueur joue
     virtual bool gagne() = 0;   // Vérifie si le joueur gagne
@@ -26,9 +25,7 @@ public:
 
     void setScore(int newScore);
 
-    ~Joueur();
+    virtual ~Joueur();
 };
 
-
 #endif
-
