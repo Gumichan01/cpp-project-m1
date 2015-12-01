@@ -19,7 +19,7 @@ test:
 .PHONY : clear clean clean-framework clean-test clear-framework clear-test
 
 clear: clear-framework clear-test
-clean: clean-framework clean-test clear-framework clear-test
+clean: clean-framework clean-test
 
 clean-test:
 	@make clean -f Makefile.test
