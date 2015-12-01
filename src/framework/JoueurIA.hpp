@@ -10,6 +10,7 @@ class StrategieIA;
 
 class JoueurIA : public Joueur
 {
+    /// @todo Refaire la structure interne
     std::vector<StrategieIA *> strats;
     static int id;
 
