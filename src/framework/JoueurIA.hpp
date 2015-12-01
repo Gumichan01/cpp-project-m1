@@ -11,7 +11,7 @@ class StrategieIA;
 class JoueurIA : public Joueur
 {
 protected:
-    /// @todo Refaire la structure interne
+
     StrategieIA * strat;
 
 public:
