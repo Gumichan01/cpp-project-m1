@@ -3,17 +3,19 @@
 # Makefile Projet C++
 #
 
-.PHONY: library test
+.PHONY: library test doxy
 
 all: library test
 
 
 library:
-	make -f Makefile.framework
+	@make -f Makefile.framework
 
 test:
-	make -f Makefile.test
+	@make -f Makefile.test
 
+doxy:
+	doxygen dox
 
 
 .PHONY : clear clean clean-framework clean-test clear-framework clear-test
