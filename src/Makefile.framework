@@ -59,13 +59,21 @@ $(FRAMEWORK_PATH)F_JoueurIA.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
-F_Case.o: $(FRAMEWORK_PATH)F_Case.cpp $(FRAMEWORK_PATH)F_Case.hpp
+F_Case.o: $(FRAMEWORK_PATH)F_Case.cpp $(FRAMEWORK_PATH)F_Case.hpp \
+$(FRAMEWORK_PATH)F_Pion.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
-F_Pion.o: $(FRAMEWORK_PATH)F_Pion.cpp $(FRAMEWORK_PATH)F_Pion.hpp
+F_Pion.o: $(FRAMEWORK_PATH)F_Pion.cpp $(FRAMEWORK_PATH)F_Pion.hpp \
+$(FRAMEWORK_PATH)F_Joueur.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
+
+F_Plateau.o: $(FRAMEWORK_PATH)F_Plateau.cpp $(FRAMEWORK_PATH)F_Plateau.hpp \
+$(FRAMEWORK_PATH)F_Case.hpp
+	@echo " = Compiler "$<" vers "$@
+	@$(CC) -c -o $@ $< $(CFLAGS)
+
 
 #
 # Netoyage
