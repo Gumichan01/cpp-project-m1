@@ -2,10 +2,10 @@
     Ce fichier sert juste de test
 */
 
-#include "../framework/F_Afficheur.hpp"
-#include "../framework/F_Jeu.hpp"
-#include "../framework/F_Joueur.hpp"
-#include "../framework/F_JoueurIA.hpp"
+#include "../framework/F_F_Afficheur.hpp"
+#include "../framework/F_F_Jeu.hpp"
+#include "../framework/F_F_Joueur.hpp"
+#include "../framework/F_F_JoueurIA.hpp"
 #include "../framework/F_Strategie.hpp"
 
 #include <iostream>
@@ -15,7 +15,7 @@ using namespace std;
 const int MAX_SCORE = 10;
 
 // Classe de test pour l'affichage
-class AffichageStd : virtual public Afficheur
+class AffichageStd : virtual public F_Afficheur
 {
     int etat;
 
@@ -26,29 +26,29 @@ public:
     void afficherMenu()
     {
         cout << "Démarrage du programme test" << endl;
-        cout << "Jeu en cours..." << endl;
+        cout << "F_Jeu en cours..." << endl;
     }
 
-    void afficherJeu()
+    void afficherF_Jeu()
     {
-        cout << " = Affichage du jeu OK = Etat " << (etat++) << endl << endl;
+        cout << " = Affichage du F_Jeu OK = Etat " << (etat++) << endl << endl;
     }
 
     ~AffichageStd() {}
 };
 
-// Classe de test pour Jeu
-class JeuTest : public Jeu
+// Classe de test pour F_Jeu
+class F_JeuTest : public F_Jeu
 {
 
 public:
 
-    JeuTest():Jeu() {}
+    F_JeuTest():F_Jeu() {}
 
     void demarrer()
     {
         //Affichage menu
-        for(vector<Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
+        for(vector<F_Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
         {
             liste_affichage[i]->afficherMenu();
         }
@@ -61,11 +61,11 @@ public:
         while(!stop)
         {
             // Faire évoluer les joueurs
-            for(vector<Joueur *>::size_type i = 0; i < joueurs.size(); i++)
+            for(vector<F_Joueur *>::size_type i = 0; i < joueurs.size(); i++)
             {
                 joueurs[i]->jouer();
 
-                cout << "Joueur " << joueurs[i]->getNom() << " a désormais "
+                cout << "F_Joueur " << joueurs[i]->getNom() << " a désormais "
                      << joueurs[i]->getScore() << " points." << endl;
 
                 if(joueurs[i]->gagne())
@@ -75,37 +75,37 @@ public:
                 }
             }
 
-            // Affichage jeu
-            for(vector<Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
+            // Affichage F_Jeu
+            for(vector<F_Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
             {
-                liste_affichage[i]->afficherJeu();
+                liste_affichage[i]->afficherF_Jeu();
             }
         }
     }
 
     void arret()
     {
-        for(vector<Joueur *>::size_type i = 0; i < joueurs.size(); i++)
+        for(vector<F_Joueur *>::size_type i = 0; i < joueurs.size(); i++)
         {
             if(joueurs[i]->gagne())
             {
                 cout << "Le gagnant est :'" << joueurs[i]->getNom()
                      << "' avec un score de " << joueurs[i]->getScore() << endl;
-                cout << "... Fin du jeu" << endl;
+                cout << "... Fin du F_Jeu" << endl;
                 break;
             }
         }
     }
 
-    ~JeuTest() {}
+    ~F_JeuTest() {}
 };
 
 
-class JoueurTest : public Joueur
+class F_JoueurTest : public F_Joueur
 {
 public:
 
-    JoueurTest(string nom) : Joueur(nom) {}
+    F_JoueurTest(string nom) : F_Joueur(nom) {}
 
     void jouer()
     {
@@ -117,15 +117,15 @@ public:
         return score > MAX_SCORE;
     }
 
-    virtual ~JoueurTest() {}
+    virtual ~F_JoueurTest() {}
 };
 
 
-class JoueurIATest : public JoueurIA
+class F_JoueurIATest : public F_JoueurIA
 {
 public:
 
-    JoueurIATest() : JoueurIA() {}
+    F_JoueurIATest() : F_JoueurIA() {}
 
     void jouer()
     {
@@ -137,15 +137,15 @@ public:
         return score > MAX_SCORE*2;
     }
 
-    virtual ~JoueurIATest() {}
+    virtual ~F_JoueurIATest() {}
 };
 
 
-class StrategieTest: public StrategieIA
+class StrategieTest: public F_StrategieIA
 {
 public:
 
-    StrategieTest(JoueurIATest* j): StrategieIA(j){}
+    StrategieTest(F_JoueurIATest* j): F_StrategieIA(j){}
 
     void executer()
     {
@@ -158,20 +158,20 @@ public:
 
 int main(void)
 {
-    JeuTest jeu;
+    F_JeuTest F_Jeu;
 
-    JoueurIATest *ia = new JoueurIATest();
+    F_JoueurIATest *ia = new F_JoueurIATest();
     ia->ajoutStrategie(new StrategieTest(ia));
 
-    jeu.ajoutJoueur(new JoueurTest("toto"));
-    jeu.ajoutJoueur(ia);
-    jeu.ajoutSystemeAffichage(new AffichageStd());
+    F_Jeu.ajoutF_Joueur(new F_JoueurTest("toto"));
+    F_Jeu.ajoutF_Joueur(ia);
+    F_Jeu.ajoutSystemeAffichage(new AffichageStd());
     srand(time(nullptr));
 
-    // Algorithme de base pour lancer un jeu
-    jeu.demarrer();
-    jeu.lancerPartie();
-    jeu.arret();
+    // Algorithme de base pour lancer un F_Jeu
+    F_Jeu.demarrer();
+    F_Jeu.lancerPartie();
+    F_Jeu.arret();
 
     return 0;
 }

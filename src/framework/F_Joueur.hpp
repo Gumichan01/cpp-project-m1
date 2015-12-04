@@ -5,7 +5,7 @@
 #include <string>
 
 
-class Joueur
+class F_Joueur
 {
 
 protected:
@@ -15,7 +15,7 @@ protected:
 
 public:
 
-    Joueur(std::string n, int sc = 0);
+    F_Joueur(std::string n, int sc = 0);
 
     virtual void jouer() = 0;   // le joueur joue
     virtual bool gagne() = 0;   // Vérifie si le joueur gagne
@@ -25,7 +25,7 @@ public:
 
     void setScore(int newScore);
 
-    virtual ~Joueur();
+    virtual ~F_Joueur();
 };
 
 #endif

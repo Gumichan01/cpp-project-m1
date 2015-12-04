@@ -1,27 +1,27 @@
 
-#ifndef JEU_HPP
-#define JEU_HPP
+#ifndef F_Jeu_HPP
+#define F_Jeu_HPP
 
 #include <vector>
 
-class Afficheur;
-class Joueur;
+class F_Afficheur;
+class F_Joueur;
 
-class Jeu
+class F_Jeu
 {
 protected:
 
-    std::vector<Joueur *> joueurs;              /* Liste de joueurs */
-    std::vector<Afficheur *> liste_affichage;   /* Liste d'afficheurs */
+    std::vector<F_Joueur *> joueurs;              /* Liste de joueurs */
+    std::vector<F_Afficheur *> liste_affichage;   /* Liste d'F_Afficheurs */
 
 public:
 
-    Jeu();
+    F_Jeu();
 
     /**
     *   @fn virtual void demarrer()
     *
-    *   Initialise le jeu
+    *   Initialise le F_Jeu
     *
     */
     virtual void demarrer() = 0;
@@ -37,18 +37,18 @@ public:
     /**
     *   @fn virtual void arret()
     *
-    *   Arrête le jeu
+    *   Arrête le F_Jeu
     *
     */
     virtual void arret() = 0;
 
-    bool ajoutJoueur(Joueur *j);
-    bool ajoutSystemeAffichage(Afficheur *a);
+    bool ajoutF_Joueur(F_Joueur *j);
+    bool ajoutSystemeAffichage(F_Afficheur *a);
 
-    Joueur * supprJoueur(unsigned int indice);
-    Afficheur * supprSystemeAffichage(unsigned int indice);
+    F_Joueur * supprF_Joueur(unsigned int indice);
+    F_Afficheur * supprSystemeAffichage(unsigned int indice);
 
-    virtual ~Jeu();
+    virtual ~F_Jeu();
 };
 
 #endif

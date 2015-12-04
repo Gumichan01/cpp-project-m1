@@ -2,7 +2,7 @@
 #include "F_Afficheur.hpp"
 
 
-Afficheur::~Afficheur()
+F_Afficheur::~F_Afficheur()
 {
     // Empty
 }

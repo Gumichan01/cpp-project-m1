@@ -6,22 +6,22 @@
 
 #include "F_Joueur.hpp"
 
-class StrategieIA;
+class F_StrategieIA;
 
-class JoueurIA : public Joueur
+class F_JoueurIA : public F_Joueur
 {
 protected:
 
-    StrategieIA * strat;
+    F_StrategieIA * strat;
 
 public:
 
-    JoueurIA();
+    F_JoueurIA();
 
     void jouer();
-    bool ajoutStrategie(StrategieIA * st);
+    bool ajoutStrategie(F_StrategieIA * st);
 
-    virtual ~JoueurIA();
+    virtual ~F_JoueurIA();
 };
 
 #endif // JOUEURIA_HPP

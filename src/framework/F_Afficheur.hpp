@@ -1,13 +1,13 @@
-#ifndef AFFICHEUR_HPP
-#define AFFICHEUR_HPP
+#ifndef F_Afficheur_HPP
+#define F_Afficheur_HPP
 
 /**
-*   @class Afficheur
+*   @class F_Afficheur
 *
 *   Class abstraite qui gère l'affichage
 *
 */
-class Afficheur
+class F_Afficheur
 {
 
 public:
@@ -21,14 +21,14 @@ public:
     virtual void afficherMenu() = 0;
 
     /**
-    *   @fn virtual void afficherJeu()
+    *   @fn virtual void afficherF_Jeu()
     *
-    *   Afficher l'état du jeu
+    *   Afficher l'état du F_Jeu
     *
     */
-    virtual void afficherJeu() = 0;
+    virtual void afficherF_Jeu() = 0;
 
-    virtual ~Afficheur();
+    virtual ~F_Afficheur();
 };
 
 #endif

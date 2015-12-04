@@ -3,7 +3,7 @@
 #define STRAT_HPP
 
 
-class JoueurIA;
+class F_JoueurIA;
 
 class Strategie
 {
@@ -15,16 +15,16 @@ public :
 };
 
 
-class StrategieIA : virtual public Strategie
+class F_StrategieIA : virtual public Strategie
 {
 protected:
-    JoueurIA * ia;
+    F_JoueurIA * ia;
 
 public:
 
-    StrategieIA(JoueurIA * j);
+    F_StrategieIA(F_JoueurIA * j);
 
-    virtual ~StrategieIA();
+    virtual ~F_StrategieIA();
 };
 
 #endif // STRAT_HPP

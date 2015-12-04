@@ -6,19 +6,19 @@
 using namespace std;
 
 
-JoueurIA::JoueurIA() : Joueur("IA"), strat(nullptr)
+F_JoueurIA::F_JoueurIA() : F_Joueur("IA"), strat(nullptr)
 {
     // Empty
 }
 
 
-void JoueurIA::jouer()
+void F_JoueurIA::jouer()
 {
     strat->executer();
 }
 
 
-bool JoueurIA::ajoutStrategie(StrategieIA * st)
+bool F_JoueurIA::ajoutStrategie(F_StrategieIA * st)
 {
     if(st == nullptr)
         return false;
@@ -30,7 +30,7 @@ bool JoueurIA::ajoutStrategie(StrategieIA * st)
 }
 
 
-JoueurIA::~JoueurIA()
+F_JoueurIA::~F_JoueurIA()
 {
     // Empty
 }

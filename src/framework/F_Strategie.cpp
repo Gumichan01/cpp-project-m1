@@ -9,13 +9,13 @@ Strategie::~Strategie()
 }
 
 
-StrategieIA::StrategieIA(JoueurIA * j) : ia(j)
+F_StrategieIA::F_StrategieIA(F_JoueurIA * j) : ia(j)
 {
     // Empty
 }
 
 
-StrategieIA::~StrategieIA()
+F_StrategieIA::~F_StrategieIA()
 {
     // Empty
 }

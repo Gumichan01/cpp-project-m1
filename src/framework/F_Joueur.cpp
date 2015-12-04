@@ -2,31 +2,31 @@
 #include "F_Joueur.hpp"
 
 
-Joueur::Joueur(std::string n, int sc) : nom(n), score(sc)
+F_Joueur::F_Joueur(std::string n, int sc) : nom(n), score(sc)
 {
     // Empty
 }
 
 
-Joueur::~Joueur()
+F_Joueur::~F_Joueur()
 {
     // Empty
 }
 
 
-std::string Joueur::getNom()
+std::string F_Joueur::getNom()
 {
     return nom;
 }
 
 
-int Joueur::getScore()
+int F_Joueur::getScore()
 {
     return score;
 }
 
 
-void Joueur::setScore(int newScore)
+void F_Joueur::setScore(int newScore)
 {
     if(newScore >= 0)
         score = newScore;
