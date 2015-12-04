@@ -6,7 +6,7 @@ class F_Pion
 {
     static int id_compteur;
     int id;
-    int idJoueur;   /* Identifiant du joueur qui possède le pion*/
+    int idJoueur;   /* Identifiant du joueur qui possède le pion */
     int position;   /* Position du pion sur le plateau */
 
 public:

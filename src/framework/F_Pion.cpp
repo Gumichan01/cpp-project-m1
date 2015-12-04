@@ -17,7 +17,7 @@ F_Pion::F_Pion(const F_Pion& p)
 }
 
 
-F_Pion&  F_Pion::operator=(F_Pion p)
+F_Pion& F_Pion::operator=(F_Pion p)
 {
     id = p.id;
     idJoueur = p.idJoueur;
