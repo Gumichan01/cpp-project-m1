@@ -7,10 +7,10 @@
 
 # Compilateur
 CC=g++
-CFLAGS=-Wall --std=c++11 -g
+CFLAGS=-Wall --std=c++0x -g
 
 # Objets 
-SRC=Afficheur.cpp Jeu.cpp Joueur.cpp JoueurIA.cpp Strategie.cpp
+SRC=F_Afficheur.cpp F_Jeu.cpp F_Joueur.cpp F_JoueurIA.cpp F_Strategie.cpp
 OBJS=$(SRC:.cpp=.o)
 
 # Chemin
@@ -34,27 +34,27 @@ $(LIB_TARGET) : $(OBJS)
 # Compilation des objets
 #
 
-Afficheur.o: $(FRAMEWORK_PATH)Afficheur.cpp $(FRAMEWORK_PATH)Afficheur.hpp
+F_Afficheur.o: $(FRAMEWORK_PATH)F_Afficheur.cpp $(FRAMEWORK_PATH)F_Afficheur.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
 
-Jeu.o: $(FRAMEWORK_PATH)Jeu.cpp $(FRAMEWORK_PATH)Jeu.hpp \
-$(FRAMEWORK_PATH)Joueur.hpp
+F_Jeu.o: $(FRAMEWORK_PATH)F_Jeu.cpp $(FRAMEWORK_PATH)F_Jeu.hpp \
+$(FRAMEWORK_PATH)F_Joueur.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
-Joueur.o: $(FRAMEWORK_PATH)Joueur.cpp $(FRAMEWORK_PATH)Joueur.hpp
+F_Joueur.o: $(FRAMEWORK_PATH)F_Joueur.cpp $(FRAMEWORK_PATH)F_Joueur.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
-JoueurIA.o: $(FRAMEWORK_PATH)JoueurIA.cpp $(FRAMEWORK_PATH)JoueurIA.hpp \
-$(FRAMEWORK_PATH)Joueur.hpp $(FRAMEWORK_PATH)Strategie.hpp
+F_JoueurIA.o: $(FRAMEWORK_PATH)F_JoueurIA.cpp $(FRAMEWORK_PATH)F_JoueurIA.hpp \
+$(FRAMEWORK_PATH)F_Joueur.hpp $(FRAMEWORK_PATH)F_Strategie.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
-Strategie.o: $(FRAMEWORK_PATH)Strategie.cpp $(FRAMEWORK_PATH)Strategie.hpp \
-$(FRAMEWORK_PATH)JoueurIA.hpp 
+F_Strategie.o: $(FRAMEWORK_PATH)F_Strategie.cpp $(FRAMEWORK_PATH)F_Strategie.hpp \
+$(FRAMEWORK_PATH)F_JoueurIA.hpp 
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
 

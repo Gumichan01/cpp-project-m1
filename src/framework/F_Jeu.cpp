@@ -1,7 +1,7 @@
 
-#include "Jeu.hpp"
-#include "Joueur.hpp"
-#include "Afficheur.hpp"
+#include "F_Jeu.hpp"
+#include "F_Joueur.hpp"
+#include "F_Afficheur.hpp"
 
 using namespace std;
 

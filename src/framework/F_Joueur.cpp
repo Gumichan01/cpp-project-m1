@@ -1,5 +1,5 @@
 
-#include "Joueur.hpp"
+#include "F_Joueur.hpp"
 
 
 Joueur::Joueur(std::string n, int sc) : nom(n), score(sc)

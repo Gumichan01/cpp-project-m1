@@ -4,7 +4,7 @@
 
 #include <vector>
 
-#include "Joueur.hpp"
+#include "F_Joueur.hpp"
 
 class StrategieIA;
 

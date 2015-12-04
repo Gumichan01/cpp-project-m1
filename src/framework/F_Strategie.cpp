@@ -1,6 +1,6 @@
 
 
-#include "Strategie.hpp"
+#include "F_Strategie.hpp"
 
 
 Strategie::~Strategie()

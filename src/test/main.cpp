@@ -2,15 +2,13 @@
     Ce fichier sert juste de test
 */
 
-#include <cstdlib>
-#include <ctime>
-#include <iostream>
+#include "../framework/F_Afficheur.hpp"
+#include "../framework/F_Jeu.hpp"
+#include "../framework/F_Joueur.hpp"
+#include "../framework/F_JoueurIA.hpp"
+#include "../framework/F_Strategie.hpp"
 
-#include "../framework/Afficheur.hpp"
-#include "../framework/Jeu.hpp"
-#include "../framework/Joueur.hpp"
-#include "../framework/JoueurIA.hpp"
-#include "../framework/Strategie.hpp"
+#include <iostream>
 
 using namespace std;
 

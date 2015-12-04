@@ -1,7 +1,7 @@
 
 
-#include "Strategie.hpp"
-#include "JoueurIA.hpp"
+#include "F_Strategie.hpp"
+#include "F_JoueurIA.hpp"
 
 using namespace std;
 
