@@ -12,6 +12,8 @@ class F_Pion
 public:
 
     F_Pion(int idJ);
+    F_Pion(const F_Pion& p);
+    F_Pion& operator=(F_Pion p);
 
     int getID();
     int getIdJoueur();
