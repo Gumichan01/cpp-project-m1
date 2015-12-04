@@ -5,7 +5,7 @@
 
 .PHONY: library test doxy
 
-all: library test
+all: library
 
 
 library:
