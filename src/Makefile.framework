@@ -10,7 +10,8 @@ CC=g++
 CFLAGS=-Wall --std=c++0x -g
 
 # Objets 
-SRC=F_Afficheur.cpp F_Jeu.cpp F_Joueur.cpp F_JoueurIA.cpp F_Strategie.cpp
+SRC=F_Afficheur.cpp F_Jeu.cpp F_Joueur.cpp F_JoueurIA.cpp F_Strategie.cpp \
+F_Case.cpp
 OBJS=$(SRC:.cpp=.o)
 
 # Chemin
@@ -55,6 +56,10 @@ $(FRAMEWORK_PATH)F_Joueur.hpp $(FRAMEWORK_PATH)F_Strategie.hpp
 
 F_Strategie.o: $(FRAMEWORK_PATH)F_Strategie.cpp $(FRAMEWORK_PATH)F_Strategie.hpp \
 $(FRAMEWORK_PATH)F_JoueurIA.hpp 
+	@echo " = Compiler "$<" vers "$@
+	@$(CC) -c -o $@ $< $(CFLAGS)
+
+F_Case.o: $(FRAMEWORK_PATH)F_Case.cpp $(FRAMEWORK_PATH)F_Case.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
