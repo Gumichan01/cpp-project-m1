@@ -8,8 +8,11 @@
 class F_Joueur
 {
 
+static int id_compteur;
+
 protected:
 
+    int id;
     std::string nom;
     int score;
 

@@ -7,11 +7,11 @@
 
 # Compilateur
 CC=g++
-CFLAGS=-Wall --std=c++0x -g
+CFLAGS=-Wall --std=c++11 -g
 
 # Objets 
 SRC=F_Afficheur.cpp F_Jeu.cpp F_Joueur.cpp F_JoueurIA.cpp F_Strategie.cpp \
-F_Case.cpp
+F_Case.cpp F_Pion.cpp
 OBJS=$(SRC:.cpp=.o)
 
 # Chemin
@@ -63,6 +63,9 @@ F_Case.o: $(FRAMEWORK_PATH)F_Case.cpp $(FRAMEWORK_PATH)F_Case.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
 
+F_Pion.o: $(FRAMEWORK_PATH)F_Pion.cpp $(FRAMEWORK_PATH)F_Pion.hpp
+	@echo " = Compiler "$<" vers "$@
+	@$(CC) -c -o $@ $< $(CFLAGS)
 
 #
 # Netoyage

@@ -2,6 +2,10 @@
 #ifndef CASE_HPP
 #define CASE_HPP
 
+#include <map>
+#include "F_Pion.hpp"
+
+
 /**
     @enum TYPE_CASE
 
@@ -29,11 +33,14 @@ class F_Case
     TYPE_CASE type;
     int ref_case;      /* indice sur la case à sauter si elle existe, -1 sinon */
     bool vide;
-
+    std::map<int,F_Pion*> pions;
 
 public:
 
     F_Case(TYPE_CASE ty, int ref_ = -1);
+
+    void ajoutPion(F_Pion& p);
+    void enleverPion(int idPion);
 
     TYPE_CASE getType();
     bool estVide();
