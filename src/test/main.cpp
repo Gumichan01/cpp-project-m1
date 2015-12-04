@@ -2,10 +2,10 @@
     Ce fichier sert juste de test
 */
 
-#include "../framework/F_F_Afficheur.hpp"
-#include "../framework/F_F_Jeu.hpp"
-#include "../framework/F_F_Joueur.hpp"
-#include "../framework/F_F_JoueurIA.hpp"
+#include "../framework/F_Afficheur.hpp"
+#include "../framework/F_Jeu.hpp"
+#include "../framework/F_Joueur.hpp"
+#include "../framework/F_JoueurIA.hpp"
 #include "../framework/F_Strategie.hpp"
 
 #include <iostream>
