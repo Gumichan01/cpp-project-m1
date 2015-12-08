@@ -15,8 +15,12 @@ F_Plateau::F_Plateau(int nbCases,bool isProcedural)
 
 F_Plateau::~F_Plateau()
 {
-    /// @todo effacer les cases
-    // Empty
+    for(std::vector<F_Case *>::size_type i = 0; i != cases.size(); i++)
+    {
+        delete enemies[i];
+        enemies.erase(cases.begin() + i);
+        i--;
+    }
 }
 
 void F_Plateau::init(int nbCases, bool isProcedural)
