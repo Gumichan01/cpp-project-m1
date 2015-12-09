@@ -24,6 +24,7 @@ public:
 
     F_StrategieIA(F_JoueurIA * j);
 
+    void executer();
     virtual ~F_StrategieIA();
 };
 
