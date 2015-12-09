@@ -14,7 +14,7 @@ public :
     virtual ~Strategie();
 };
 
-
+/// @todo execution
 class F_StrategieIA : virtual public Strategie
 {
 protected:

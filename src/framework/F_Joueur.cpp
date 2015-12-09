@@ -19,19 +19,19 @@ F_Joueur::~F_Joueur()
     // Empty
 }
 
-
+// Obtenir son nom
 std::string F_Joueur::getNom()
 {
     return nom;
 }
 
-
+// Obtenir son score
 int F_Joueur::getScore()
 {
     return score;
 }
 
-
+// Changer son score
 void F_Joueur::setScore(int newScore)
 {
     if(newScore >= 0)

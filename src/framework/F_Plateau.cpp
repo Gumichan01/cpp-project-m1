@@ -6,6 +6,7 @@
 
 static F_Plateau *singleton = nullptr;
 
+// constructeur
 F_Plateau::F_Plateau(int nbCases,bool isProcedural)
     : cases(nbCases)
 {
@@ -15,6 +16,7 @@ F_Plateau::F_Plateau(int nbCases,bool isProcedural)
         generationClassique();
 }
 
+// destructeur
 F_Plateau::~F_Plateau()
 {
     for(std::vector<F_Case *>::size_type i = 0; i != cases.size(); i++)
@@ -25,24 +27,27 @@ F_Plateau::~F_Plateau()
     }
 }
 
+// Créer le singlaton
 void F_Plateau::init(int nbCases, bool isProcedural)
 {
     if(singleton == nullptr)
         singleton = new F_Plateau(nbCases,isProcedural);
 }
 
+// Récupère le singleton
 F_Plateau * getInstance()
 {
     return singleton;
 }
 
-
+// Détruire le singleton
 void F_Plateau::detruire()
 {
     delete singleton;
 }
 
 
+// Génère le plateau normalement
 void F_Plateau::generationClassique()
 {
     // 10 échelles et 10 serpents
@@ -122,13 +127,16 @@ void F_Plateau::generationClassique()
     }
 }
 
-
+/*
+    Génère un plateau de manière procédural, les echelles et les serpents
+    sont placés aléatoirement
+*/
 void F_Plateau::generationProcedural()
 {
     /// @todo Génération procédural du plateau
 }
 
-
+// Obtenir le i-ème élément de la case
 F_Case& F_Plateau::operator [](unsigned int index)
 {
     return *(this->cases.at(index));

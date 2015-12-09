@@ -86,7 +86,7 @@ F_Afficheur * F_Jeu::supprSystemeAffichage(unsigned int indice)
     return aff;
 }
 
-
+// destructeur
 F_Jeu::~F_Jeu()
 {
     for(vector<F_Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)

@@ -18,6 +18,7 @@ void F_JoueurIA::jouer()
 }
 
 
+// Ajout d'une strategie (écrase l'ancienne)
 bool F_JoueurIA::ajoutStrategie(F_StrategieIA * st)
 {
     if(st == nullptr)
