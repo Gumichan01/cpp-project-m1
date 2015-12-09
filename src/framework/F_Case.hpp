@@ -15,7 +15,7 @@
     - SAUT  :   case permettant de faire un saut plus loin dans le jeu
     - CHUTE :   case permettant de faire un retour en arrière
     - REJOUER : case permettant de rejouer sur un même tour
-    - PASSE : case qui fait passer un tour au joueur
+    - PASSE :   case qui fait passer un tour au joueur
 
     @note   Dans le jeu du serpent, le SAUT correspond à l'echelle et la CHUTE
             à la queue du serpent.
@@ -42,6 +42,7 @@ public:
     void ajoutPion(F_Pion& p);
     void enleverPion(int idPion);
 
+    int getSautCase();
     TYPE_CASE getType();
     bool estVide();
 

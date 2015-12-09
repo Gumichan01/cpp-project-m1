@@ -19,6 +19,12 @@ void F_Case::enleverPion(int idPion)
 }
 
 
+int F_Case::getSautCase()
+{
+    return ref_case;
+}
+
+
 TYPE_CASE F_Case::getType()
 {
     return type;
