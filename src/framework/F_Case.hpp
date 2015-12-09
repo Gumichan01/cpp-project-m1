@@ -12,16 +12,15 @@
     Définit le type d'une case
 
     - NORMAL:   case normal sans effet
-    - SAUT  :   case permettant de faire un saut plus loin dans le jeu
-    - CHUTE :   case permettant de faire un retour en arrière
+    - SAUT  :   case permettant de faire un saut vers une autre case
     - REJOUER : case permettant de rejouer sur un même tour
     - PASSE :   case qui fait passer un tour au joueur
 
-    @note   Dans le jeu du serpent, le SAUT correspond à l'echelle et la CHUTE
-            à la queue du serpent.
+    @note   Dans le jeu du serpent, le SAUT correspond à la fois
+            à l'echelle et à la queue du serpent.
 
 */
-typedef enum {NORMAL,SAUT,CHUTE,REJOUER,PASSE} TYPE_CASE;
+typedef enum {NORMAL,SAUT,REJOUER,PASSE} TYPE_CASE;
 
 /**
     @class F_Case
@@ -50,7 +49,4 @@ public:
 };
 
 #endif // CASE_HPP
-
-
-
 
