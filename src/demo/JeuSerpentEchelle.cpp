@@ -5,6 +5,7 @@
 #include <stdexcept>
 
 #include "../framework/F_Afficheur.hpp"
+#include "../framework/F_JoueurIA.hpp"
 #include "JeuSerpentEchelle.hpp"
 #include "JoueurHumain.hpp"
 
@@ -41,18 +42,19 @@ void JeuSerpentEchelle::demarrer()
         cout << "Saisir nom : " << endl;
         cin >> nom;
 
-        new Joueurhumain(nom,1);
-        //joueurs.add(new Joueurhumain(nom,1));
-        //joueurs.add(new JoueurIA());
+        joueurs.push_back(new Joueurhumain(nom,1));
+        joueurs.push_back(new F_JoueurIA());
     }
     else
     {
-        /*for(int i = 0; i < nbj; i++)
+        for(int i = 0; i < nbj; i++)
         {
-            string nom;
+            string nom_joueur;
             cout << "Saisir nom : " << endl;
-            cin >> nom;
-        }*/
+            cin >> nom_joueur;
+
+            joueurs.push_back(new Joueurhumain(nom_joueur,1));
+        }
     }
 
     /// @todo Ajout afficheur
@@ -90,5 +92,7 @@ void JeuSerpentEchelle::lancerPartie()
 void JeuSerpentEchelle::arret()
 {
     /// @todo
+
+
 }
 
