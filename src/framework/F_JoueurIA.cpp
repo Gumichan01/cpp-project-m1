@@ -18,6 +18,12 @@ void F_JoueurIA::jouer()
 }
 
 
+bool F_JoueurIA::gagne()
+{
+    return false;
+}
+
+
 // Ajout d'une strategie (écrase l'ancienne)
 bool F_JoueurIA::ajoutStrategie(F_StrategieIA * st)
 {

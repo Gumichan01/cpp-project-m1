@@ -19,6 +19,7 @@ public:
     F_JoueurIA();
 
     void jouer();
+    bool gagne();
     bool ajoutStrategie(F_StrategieIA * st);
 
     virtual ~F_JoueurIA();

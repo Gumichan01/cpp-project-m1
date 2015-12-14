@@ -12,7 +12,7 @@ class F_Jeu
 protected:
 
     std::vector<F_Joueur *> joueurs;              /* Liste de joueurs */
-    std::vector<F_Afficheur *> liste_affichage;   /* Liste d'F_Afficheurs */
+    std::vector<F_Afficheur *> liste_affichage;   /* Liste de F_Afficheurs */
 
 public:
 
