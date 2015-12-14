@@ -1,6 +1,11 @@
 
-#include "JeuSerpentEchelle.hpp"
+#include <vector>
 
+#include "../framework/F_Afficheur.hpp"
+#include "JeuSerpentEchelle.hpp"
+#include "JoueurHumain.hpp"
+
+using namespace std;
 
 JeuSerpentEchelle::JeuSerpentEchelle()
     : F_Jeu()
@@ -23,7 +28,31 @@ void JeuSerpentEchelle::demarrer()
 
 void JeuSerpentEchelle::lancerPartie()
 {
-    /// @todo
+    bool stop = false;
+
+    while(!stop)
+    {
+        for(vector<F_Joueur *>::size_type i = 0; i < joueurs.size(); i++)
+        {
+            joueurs[i]->jouer();
+
+            cout << "F_Joueur " << joueurs[i]->getNom() << " à la case numéro "
+                 << joueurs[i]->getPosition() << endl;
+
+            if(joueurs[i]->gagne())
+            {
+                stop = true;
+                break;
+            }
+        }
+
+        // Affichage F_Jeu
+        for(vector<F_Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
+        {
+            liste_affichage[i]->afficherF_Jeu();
+        }
+    }
+
 }
 
 void JeuSerpentEchelle::arret()
