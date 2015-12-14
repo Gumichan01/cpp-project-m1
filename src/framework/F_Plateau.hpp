@@ -26,7 +26,7 @@ class F_Plateau
 public:
 
     static void init(int nbCases, bool isProcedural=false);
-    F_Plateau * getInstance();
+    static F_Plateau * getInstance();
     void generationClassique();     // Définir le plateau spécifié dans le sujet
     void generationProcedural();    // Permet de générer un plateau aléatoirement
     static void detruire();
