@@ -26,7 +26,7 @@ std::string F_Joueur::getNom()
 }
 
 // Position du jeoueur quand il a un pion
-int getPosition()
+int F_Joueur::getPosition()
 {
     if(pions.size() == 1)
         return pions[0].getPosition();
