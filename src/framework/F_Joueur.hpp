@@ -27,6 +27,7 @@ public:
     virtual bool gagne() = 0;   // Vérifie si le joueur gagne
 
     std::string getNom();
+    int getPosition();
     int getScore();
 
     void setScore(int newScore);

@@ -25,6 +25,15 @@ std::string F_Joueur::getNom()
     return nom;
 }
 
+// Position du jeoueur quand il a un pion
+int getPosition()
+{
+    if(pions.size() == 1)
+        return pions[0].getPosition();
+    else
+        return -1;
+}
+
 // Obtenir son score
 int F_Joueur::getScore()
 {

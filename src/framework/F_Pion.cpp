@@ -29,7 +29,7 @@ F_Pion& F_Pion::operator=(F_Pion p)
 
 int F_Pion::getPosition()
 {
-    return position;
+    return position + 1;
 }
 
 
