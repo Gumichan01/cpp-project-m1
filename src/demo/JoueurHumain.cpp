@@ -28,26 +28,27 @@ void Joueurhumain::jouer()
         int position = pions[0].getPosition() + des;
 
         F_Plateau * plateau = F_Plateau::getInstance();
-        F_Case& case_courant = plateau->operator[](position);
+        F_Case& case_suivante = plateau->operator[](position);
 
-/// @todo enlever le pion de la case précédente
-        case_courant.enleverPion(pions[0].getPosition());
+        case_suivante.enleverPion(pions[0].getPosition());
 /// @todo retour à la case départ si la case d'arrivée est occupée
 
-        switch(case_courant.getType())
+        if()
+
+        switch(case_suivante.getType())
         {
         case SAUT :
         {
-            pions[0].setPosition(case_courant.getSautCase());
+            pions[0].setPosition(case_suivante.getSautCase());
 
-            plateau->operator[](case_courant.getSautCase()).ajoutPion(pions[0]);
+            plateau->operator[](case_suivante.getSautCase()).ajoutPion(pions[0]);
         }
         break;
 
         case REJOUER:
         {
             pions[0].setPosition(position);
-            case_courant.ajoutPion(pions[0]);
+            case_suivante.ajoutPion(pions[0]);
             jouer();
         }
         break;
