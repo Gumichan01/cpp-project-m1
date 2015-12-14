@@ -31,40 +31,46 @@ void Joueurhumain::jouer()
         F_Case& case_suivante = plateau->operator[](position);
 
         case_suivante.enleverPion(pions[0].getPosition());
-/// @todo retour à la case départ si la case d'arrivée est occupée
 
-        if()
-
-        switch(case_suivante.getType())
+        if(!case_suivante.estVide())
         {
-        case SAUT :
+            plateau->operator[](0).ajoutPion(pions[0]);
+            pions[0].setPosition(0);
+        }
+        else
         {
-            pions[0].setPosition(case_suivante.getSautCase());
+            switch(case_suivante.getType())
+            {
+            case SAUT :
+            {
+                pions[0].setPosition(case_suivante.getSautCase());
 
-            plateau->operator[](case_suivante.getSautCase()).ajoutPion(pions[0]);
+                plateau->operator[](case_suivante.getSautCase()).ajoutPion(pions[0]);
+            }
+            break;
+
+            case REJOUER:
+            {
+                pions[0].setPosition(position);
+                case_suivante.ajoutPion(pions[0]);
+                jouer();
+            }
+            break;
+
+            case PASSE:
+            {
+                pions[0].setPosition(position);
+                passe_tour=true;
+            }
+            break;
+
+            default :
+                pions[0].setPosition(position);
+                break ;
+
+            }
         }
-        break;
 
-        case REJOUER:
-        {
-            pions[0].setPosition(position);
-            case_suivante.ajoutPion(pions[0]);
-            jouer();
-        }
-        break;
-
-        case PASSE:
-        {
-            pions[0].setPosition(position);
-            passe_tour=true;
-        }
-        break;
-
-        default :
-            pions[0].setPosition(position);
-            break ;
-
-        }
     }
 }
 
