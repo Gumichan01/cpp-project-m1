@@ -9,13 +9,13 @@ class Joueurhumain : public F_Joueur
 public:
     Joueurhumain (std::string n,int nbPions, int sc = 0);
     void jouer();
-    bool gagner();
+    bool gagne();
 
 
 private:
     bool passe_tour;
 
-    virtual ~Joueurhumain();
+    ~Joueurhumain();
 };
 
 #endif // JOUEURHUMAIN_HPP_INCLUDED

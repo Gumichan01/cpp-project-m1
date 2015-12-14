@@ -1,5 +1,8 @@
 
 #include <vector>
+#include <string>
+#include <iostream>
+#include <stdexcept>
 
 #include "../framework/F_Afficheur.hpp"
 #include "JeuSerpentEchelle.hpp"
@@ -22,7 +25,36 @@ JeuSerpentEchelle::~JeuSerpentEchelle()
 
 void JeuSerpentEchelle::demarrer()
 {
+    int nbj;
     /// @todo Ajout joueurs
+    do
+    {
+        cout << "Nombre de joueurs(2 à 4 joueurs) : " << endl;
+        cin >> nbj;
+
+    }while(nbj < 1 || nbj > 4);
+
+
+    if(nbj == 1)
+    {
+        string nom;
+        cout << "Saisir nom : " << endl;
+        cin >> nom;
+
+        new Joueurhumain(nom,1);
+        //joueurs.add(new Joueurhumain(nom,1));
+        //joueurs.add(new JoueurIA());
+    }
+    else
+    {
+        /*for(int i = 0; i < nbj; i++)
+        {
+            string nom;
+            cout << "Saisir nom : " << endl;
+            cin >> nom;
+        }*/
+    }
+
     /// @todo Ajout afficheur
 }
 

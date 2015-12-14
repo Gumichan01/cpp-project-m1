@@ -82,7 +82,8 @@ void Joueurhumain::jouer()
     }
 }
 
-bool Joueurhumain::gagner()
+
+bool Joueurhumain::gagne()
 {
     for(F_Pion p : pions)
     {
