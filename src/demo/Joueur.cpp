@@ -1,11 +1,10 @@
-#include "JoueurHumain.hpp"
+
+#include "Joueur.hpp"
 #include "../framework/F_Pion.hpp"
 #include "../framework/F_Plateau.hpp"
 #include "../framework/F_Case.hpp"
 
-#include <iostream>
-#include<stdlib.h>
-#include<time.h>
+
 
 
 Joueurhumain::Joueurhumain(std::string n,int nbPions, int sc)
@@ -14,6 +13,13 @@ Joueurhumain::Joueurhumain(std::string n,int nbPions, int sc)
 {
     // Vide
 }
+
+
+Joueurhumain::~Joueurhumain()
+{
+    // Vide
+}
+
 
 void Joueurhumain::jouer()
 {
@@ -24,7 +30,7 @@ void Joueurhumain::jouer()
     else
     {
         // Lancer les dés
-        int des= rand() %6 + 1;
+        int des = rand() %6 + 1;
         int position = pions[0].getPosition() + des;
 
         // Récuperer le plateau pour intéragir avec

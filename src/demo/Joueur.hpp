@@ -2,7 +2,6 @@
 #define JOUEURHUMAIN_HPP_INCLUDED
 
 #include "../framework/F_Joueur.hpp"
-#include <iostream>
 
 class Joueurhumain : public F_Joueur
 {
