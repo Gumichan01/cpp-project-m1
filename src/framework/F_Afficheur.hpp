@@ -26,7 +26,7 @@ public:
     *   Afficher l'état du F_Jeu
     *
     */
-    virtual void afficherF_Jeu() = 0;
+    virtual void afficherJeu() = 0;
 
     virtual ~F_Afficheur();
 };

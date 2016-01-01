@@ -10,3 +10,5 @@ src/test/test*
 *html
 *.tex
 *tar.gz
+src/jeu-demo
+

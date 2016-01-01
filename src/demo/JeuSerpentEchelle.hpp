@@ -19,13 +19,5 @@ public:
     virtual ~JeuSerpentEchelle();
 };
 
-
-
-
-
-
-
-
-
 #endif // JEU_SERPENT_ECHELLE_HPP
 

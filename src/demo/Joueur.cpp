@@ -4,8 +4,7 @@
 #include "../framework/F_Plateau.hpp"
 #include "../framework/F_Case.hpp"
 
-
-
+#include <iostream>
 
 Joueurhumain::Joueurhumain(std::string n,int nbPions, int sc)
     : F_Joueur(n,nbPions,sc), passe_tour(false)
@@ -30,23 +29,27 @@ void Joueurhumain::jouer()
     else
     {
         // Lancer les dés
-        int des = rand() %6 + 1;
+        int des = 6;//rand() %6 + 1;
         int position = pions[0].getPosition() + des;
 
         // Récuperer le plateau pour intéragir avec
         F_Plateau * plateau = F_Plateau::getInstance();
 
-        // Avoir la cas où le joueur va atterrir
-        F_Case& case_suivante = plateau->operator[](position);
+        // Le joueur quitte la case courant s'il y est
+        if(pions[0].getPosition() > -1)
+        {
+            std::cout << "REMOVE" << std::endl;
+            F_Case& case_courante = plateau->operator[](pions[0].getPosition());  // Avoir la case d'où le joueur part
+            case_courante.enleverPion(pions[0].getIdJoueur());
+        }
 
-        // Le joueur quite la case courant
-        case_suivante.enleverPion(pions[0].getPosition());
-
+        F_Case& case_suivante = plateau->operator[](position);  // Avoir la case où le joueur va atterrir
 
         if(!case_suivante.estVide())
         {
-            plateau->operator[](0).ajoutPion(pions[0]);
+            // Retour à la case départ
             pions[0].setPosition(0);
+            plateau->operator[](0).ajoutPion(pions[0]);
         }
         else
         {
@@ -64,7 +67,7 @@ void Joueurhumain::jouer()
             }
             break;
 
-            case REJOUER:
+            case REJOUER :
             {
                 pions[0].setPosition(position);
                 case_suivante.ajoutPion(pions[0]);
@@ -72,15 +75,17 @@ void Joueurhumain::jouer()
             }
             break;
 
-            case PASSE:
+            case PASSE :
             {
                 pions[0].setPosition(position);
+                case_suivante.ajoutPion(pions[0]);
                 passe_tour = true;
             }
             break;
 
             default :
                 pions[0].setPosition(position);
+                case_suivante.ajoutPion(pions[0]);
                 break ;
 
             }
@@ -98,4 +103,18 @@ bool Joueurhumain::gagne()
     }
     return true;
 }
+
+
+JoueurIA::JoueurIA(std::string n,int nbPions, int sc)
+    : Joueurhumain(n,nbPions,sc)
+{
+    // Vide
+}
+
+
+JoueurIA::~JoueurIA()
+{
+    // Vide
+}
+
 

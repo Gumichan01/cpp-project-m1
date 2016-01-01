@@ -4,10 +4,11 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "../framework/F_Afficheur.hpp"
-#include "../framework/F_JoueurIA.hpp"
+#include "../framework/F_Plateau.hpp"
+#include "Afficheur.hpp"
 #include "JeuSerpentEchelle.hpp"
-#include "JoueurHumain.hpp"
+#include "Joueur.hpp"
+
 
 using namespace std;
 
@@ -43,7 +44,7 @@ void JeuSerpentEchelle::demarrer()
         cin >> nom;
 
         joueurs.push_back(new Joueurhumain(nom,1));
-        joueurs.push_back(new F_JoueurIA());
+        joueurs.push_back(new JoueurIA("IA",1));
     }
     else
     {
@@ -57,15 +58,22 @@ void JeuSerpentEchelle::demarrer()
         }
     }
 
+    /// @todo Creation Plateau
+    F_Plateau::init(100);
+
     /// @todo Ajout afficheur
+    ajoutSystemeAffichage(new AfficheurSerpent());
 }
 
 void JeuSerpentEchelle::lancerPartie()
 {
+    int tour = 1;
     bool stop = false;
 
     while(!stop)
     {
+        cout << "\nTour n° " << tour << endl;
+
         for(vector<F_Joueur *>::size_type i = 0; i < joueurs.size(); i++)
         {
             joueurs[i]->jouer();
@@ -83,16 +91,15 @@ void JeuSerpentEchelle::lancerPartie()
         // Affichage F_Jeu
         for(vector<F_Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
         {
-            liste_affichage[i]->afficherF_Jeu();
+            liste_affichage[i]->afficherJeu();
         }
+        tour++;
     }
 
 }
 
 void JeuSerpentEchelle::arret()
 {
-    /// @todo
-
-
+    F_Plateau::detruire();
 }
 

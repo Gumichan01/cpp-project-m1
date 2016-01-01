@@ -3,6 +3,7 @@
 #define PLATEAU_HPP
 
 #include <vector>
+#include "F_Pion.hpp"
 
 class F_Case;
 
@@ -27,10 +28,11 @@ public:
 
     static void init(int nbCases, bool isProcedural=false);
     static F_Plateau * getInstance();
-    void generationClassique();     // Définir le plateau spécifié dans le sujet
-    void generationProcedural();    // Permet de générer un plateau aléatoirement
     static void detruire();
 
+    void generationClassique();     // Définir le plateau spécifié dans le sujet
+    void generationProcedural();    // Permet de générer un plateau aléatoirement
+    unsigned int taille();
     F_Case& operator [](unsigned int index);
 };
 

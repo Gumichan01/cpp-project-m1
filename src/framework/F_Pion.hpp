@@ -18,7 +18,7 @@ public:
     int getID();
     int getIdJoueur();
     int getPosition();
-    void setPosition(int id);
+    void setPosition(int pos);
 
     ~F_Pion();
 };

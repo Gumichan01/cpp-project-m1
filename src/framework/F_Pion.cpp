@@ -29,19 +29,26 @@ F_Pion& F_Pion::operator=(F_Pion p)
 
 int F_Pion::getPosition()
 {
-    return position + 1;
+    return position;
 }
 
 
 int F_Pion::getID()
 {
+    return id;
+}
+
+
+int F_Pion::getIdJoueur()
+{
     return idJoueur;
 }
 
-void F_Pion::setPosition(int id)
+
+void F_Pion::setPosition(int pos)
 {
-    if (id > 0)
-        idJoueur = id;
+    if (pos >= 0)
+        position = pos;
 }
 
 

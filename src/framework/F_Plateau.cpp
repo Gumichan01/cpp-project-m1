@@ -35,7 +35,7 @@ void F_Plateau::init(int nbCases, bool isProcedural)
 }
 
 // Récupère le singleton
-F_Plateau * getInstance()
+F_Plateau * F_Plateau::getInstance()
 {
     return singleton;
 }
@@ -135,6 +135,14 @@ void F_Plateau::generationProcedural()
 {
     /// @todo Génération procédural du plateau
 }
+
+
+unsigned int F_Plateau::taille()
+{
+    return cases.size();
+}
+
+
 
 // Obtenir le i-ème élément de la case
 F_Case& F_Plateau::operator [](unsigned int index)

@@ -6,15 +6,23 @@
 class Joueurhumain : public F_Joueur
 {
 public:
-    Joueurhumain (std::string n,int nbPions, int sc = 0);
-    void jouer();
-    bool gagne();
+    Joueurhumain(std::string n,int nbPions, int sc = 0);
+    virtual void jouer();
+    virtual bool gagne();
 
+    virtual ~Joueurhumain();
 
 private:
     bool passe_tour;
+};
 
-    ~Joueurhumain();
+
+class JoueurIA : public Joueurhumain
+{
+public:
+    JoueurIA(std::string n,int nbPions, int sc = 0);
+
+    ~JoueurIA();
 };
 
 #endif // JOUEURHUMAIN_HPP_INCLUDED

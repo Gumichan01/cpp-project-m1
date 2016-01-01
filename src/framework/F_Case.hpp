@@ -42,6 +42,7 @@ public:
     void enleverPion(int idPion);
 
     int getSautCase();
+    int getJoueur();
     TYPE_CASE getType();
     bool estVide();
 
