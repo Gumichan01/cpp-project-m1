@@ -8,7 +8,7 @@ static F_Plateau *singleton = nullptr;
 
 // constructeur
 F_Plateau::F_Plateau(int nbCases,bool isProcedural)
-    : cases(nbCases)
+    : cases(nbCases + 1)
 {
     if(isProcedural)
         generationProcedural();

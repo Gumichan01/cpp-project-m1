@@ -1,5 +1,4 @@
 
-#include <iostream>
 #include "F_Case.hpp"
 
 
@@ -14,9 +13,6 @@ void F_Case::ajoutPion(F_Pion& p)
 {
     pions[p.getIdJoueur()] = &p;
 
-    std::cout << "Pions : " << pions[p.getIdJoueur()]->getID()
-              << " | " << pions[p.getIdJoueur()]->getIdJoueur() << std::endl;
-
     if(vide == true)
         vide = false;
 }
@@ -25,10 +21,7 @@ void F_Case::ajoutPion(F_Pion& p)
 // Enlève un pion dans la liste des pions présents
 void F_Case::enleverPion(int idPion)
 {
-    std::cout << "HUM BEFORE " << pions.size() << std::endl;
     pions.erase(idPion);
-
-    std::cout << "HUM AFTER " << pions.size() << std::endl;
 
     if(pions.empty())
         vide = true;

@@ -24,6 +24,8 @@ void AfficheurSerpent::afficherJeu()
 {
     F_Plateau *plateau = F_Plateau::getInstance();
 
+    cout << " ==== Etat plateau ====" << endl;
+
     for(unsigned int i = 0; i < plateau->taille(); i++)
     {
         F_Case& c = plateau->operator[](i);
@@ -32,10 +34,10 @@ void AfficheurSerpent::afficherJeu()
             continue;
         else
         {
-            cout << "Case n° " << i << " occupée par le joueur "
-                 << "d'identifiant : " << c.getJoueur() << endl;
+            cout << " Case n° " << i  << " occupée" << endl;
         }
     }
+    cout << " ======================" << endl;
 }
 
 

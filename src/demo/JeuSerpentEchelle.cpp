@@ -39,9 +39,9 @@ void JeuSerpentEchelle::demarrer()
 
     if(nbj == 1)
     {
-        string nom;
-        cout << "Saisir nom : " << endl;
-        cin >> nom;
+        string nom = "Gumi";
+        /*cout << "Saisir nom : " << endl;
+        cin >> nom;*/
 
         joueurs.push_back(new Joueurhumain(nom,1));
         joueurs.push_back(new JoueurIA("IA",1));
@@ -58,10 +58,7 @@ void JeuSerpentEchelle::demarrer()
         }
     }
 
-    /// @todo Creation Plateau
     F_Plateau::init(100);
-
-    /// @todo Ajout afficheur
     ajoutSystemeAffichage(new AfficheurSerpent());
 }
 
@@ -72,14 +69,14 @@ void JeuSerpentEchelle::lancerPartie()
 
     while(!stop)
     {
-        cout << "\nTour n° " << tour << endl;
+        cout << "\n> Tour n° " << tour << endl << endl;
 
         for(vector<F_Joueur *>::size_type i = 0; i < joueurs.size(); i++)
         {
             joueurs[i]->jouer();
 
-            cout << "F_Joueur " << joueurs[i]->getNom() << " à la case numéro "
-                 << joueurs[i]->getPosition() << endl;
+            cout << joueurs[i]->getNom() << " est à la case numéro "
+                 << joueurs[i]->getPosition() << endl << endl;
 
             if(joueurs[i]->gagne())
             {
@@ -95,7 +92,6 @@ void JeuSerpentEchelle::lancerPartie()
         }
         tour++;
     }
-
 }
 
 void JeuSerpentEchelle::arret()

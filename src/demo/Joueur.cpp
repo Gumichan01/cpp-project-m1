@@ -6,6 +6,9 @@
 
 #include <iostream>
 
+using namespace std;
+
+
 Joueurhumain::Joueurhumain(std::string n,int nbPions, int sc)
     : F_Joueur(n,nbPions,sc), passe_tour(false)
 
@@ -29,7 +32,7 @@ void Joueurhumain::jouer()
     else
     {
         // Lancer les dés
-        int des = 6;//rand() %6 + 1;
+        int des = rand() %6 + 1;
         int position = pions[0].getPosition() + des;
 
         // Récuperer le plateau pour intéragir avec
@@ -38,10 +41,17 @@ void Joueurhumain::jouer()
         // Le joueur quitte la case courant s'il y est
         if(pions[0].getPosition() > -1)
         {
-            std::cout << "REMOVE" << std::endl;
             F_Case& case_courante = plateau->operator[](pions[0].getPosition());  // Avoir la case d'où le joueur part
             case_courante.enleverPion(pions[0].getIdJoueur());
         }
+
+        cout << nom << " a lancé " << des << endl;
+
+        if(static_cast<unsigned int>(position) >= plateau->taille())
+        {
+            position = (plateau->taille() - 1) - (position - (plateau->taille() - 1) );
+        }
+
 
         F_Case& case_suivante = plateau->operator[](position);  // Avoir la case où le joueur va atterrir
 
@@ -58,17 +68,19 @@ void Joueurhumain::jouer()
             {
             case SAUT : // Echelle ou serpent
             {
+                if(case_suivante.getSautCase() > position)
+                    cout << nom << " prend l'ECHELLE" << endl;
+                else
+                    cout << nom << "se prend un serpent" << endl;
+
                 pions[0].setPosition(case_suivante.getSautCase());
-                /*
-                    Faire un saut vers la case pointée par
-                    l'echelle ou le serpent
-                */
                 plateau->operator[](case_suivante.getSautCase()).ajoutPion(pions[0]);
             }
             break;
 
             case REJOUER :
             {
+                cout << "Case SOLEIL : " << nom << " rejoue" << endl;
                 pions[0].setPosition(position);
                 case_suivante.ajoutPion(pions[0]);
                 jouer();
@@ -77,6 +89,7 @@ void Joueurhumain::jouer()
 
             case PASSE :
             {
+                cout << "Case PASSE : " << nom << " passe son tour" << endl;
                 pions[0].setPosition(position);
                 case_suivante.ajoutPion(pions[0]);
                 passe_tour = true;
@@ -96,9 +109,11 @@ void Joueurhumain::jouer()
 
 bool Joueurhumain::gagne()
 {
+    F_Plateau *plateau = F_Plateau::getInstance();
+
     for(F_Pion p : pions)
     {
-        if(p.getPosition() != 100)
+        if(p.getPosition() != static_cast<int>(plateau->taille()) -1)
             return false;
     }
     return true;
