@@ -45,7 +45,7 @@ void Joueurhumain::jouer()
             case_courante.enleverPion(pions[0].getIdJoueur());
         }
 
-        cout << nom << " a lancé " << des << endl;
+        cout << " " << nom << " a lancé " << des << endl;
 
         if(static_cast<unsigned int>(position) >= plateau->taille())
         {
@@ -69,9 +69,9 @@ void Joueurhumain::jouer()
             case SAUT : // Echelle ou serpent
             {
                 if(case_suivante.getSautCase() > position)
-                    cout << nom << " prend l'ECHELLE" << endl;
+                    cout << " " << nom << " prend l'ECHELLE" << endl;
                 else
-                    cout << nom << "se prend un serpent" << endl;
+                    cout << " " << nom << " se prend un serpent" << endl;
 
                 pions[0].setPosition(case_suivante.getSautCase());
                 plateau->operator[](case_suivante.getSautCase()).ajoutPion(pions[0]);
@@ -80,7 +80,7 @@ void Joueurhumain::jouer()
 
             case REJOUER :
             {
-                cout << "Case SOLEIL : " << nom << " rejoue" << endl;
+                cout << " " << " Case SOLEIL : " << nom << " rejoue" << endl;
                 pions[0].setPosition(position);
                 case_suivante.ajoutPion(pions[0]);
                 jouer();
@@ -89,7 +89,7 @@ void Joueurhumain::jouer()
 
             case PASSE :
             {
-                cout << "Case PASSE : " << nom << " passe son tour" << endl;
+                cout << " " << " Case PASSE : " << nom << " passe son tour" << endl;
                 pions[0].setPosition(position);
                 case_suivante.ajoutPion(pions[0]);
                 passe_tour = true;

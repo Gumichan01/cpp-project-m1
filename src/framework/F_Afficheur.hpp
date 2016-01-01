@@ -1,6 +1,8 @@
 #ifndef F_Afficheur_HPP
 #define F_Afficheur_HPP
 
+class F_Joueur;
+
 /**
 *   @class F_Afficheur
 *
@@ -27,6 +29,8 @@ public:
     *
     */
     virtual void afficherJeu() = 0;
+
+    virtual void afficherPositionJoueur(F_Joueur& j) = 0;
 
     virtual ~F_Afficheur();
 };

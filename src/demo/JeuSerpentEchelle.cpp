@@ -70,13 +70,18 @@ void JeuSerpentEchelle::lancerPartie()
     while(!stop)
     {
         cout << "\n> Tour n° " << tour << endl << endl;
+        cout << " ==== Etat plateau ====" << endl;
 
         for(vector<F_Joueur *>::size_type i = 0; i < joueurs.size(); i++)
         {
             joueurs[i]->jouer();
 
-            cout << joueurs[i]->getNom() << " est à la case numéro "
-                 << joueurs[i]->getPosition() << endl << endl;
+            // Affichage position du joueur
+            for(vector<F_Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
+            {
+                liste_affichage[i]->afficherPositionJoueur(*(joueurs[i]));
+                liste_affichage[i]->afficherJeu();
+            }
 
             if(joueurs[i]->gagne())
             {
@@ -84,12 +89,7 @@ void JeuSerpentEchelle::lancerPartie()
                 break;
             }
         }
-
-        // Affichage F_Jeu
-        for(vector<F_Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
-        {
-            liste_affichage[i]->afficherJeu();
-        }
+        cout << " ======================" << endl;
         tour++;
     }
 }
