@@ -15,6 +15,7 @@ public:
     virtual void afficherMenu();
     virtual void afficherJeu();
     virtual void afficherPositionJoueur(F_Joueur& j);
+    virtual void afficherGagnant(F_Joueur& j);
 
     ~AfficheurSerpent();
 };

@@ -4,9 +4,13 @@
 
 #include "../framework/F_Jeu.hpp"
 
+class F_Joueur;
 
 class JeuSerpentEchelle : public F_Jeu
 {
+
+    void creerJoueur();
+    void partieGagne(F_Joueur& j);
 
 public:
 

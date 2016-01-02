@@ -42,6 +42,12 @@ void AfficheurSerpent::afficherPositionJoueur(F_Joueur& j)
 }
 
 
+void AfficheurSerpent::afficherGagnant(F_Joueur& j)
+{
+    cout << j.getNom() << " gagne le jeu." << endl;
+}
+
+
 AfficheurSerpent::~AfficheurSerpent()
 {
     // Vide

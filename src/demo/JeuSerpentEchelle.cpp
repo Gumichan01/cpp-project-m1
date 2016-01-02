@@ -12,6 +12,9 @@
 
 using namespace std;
 
+string nomIA = "IA_";
+
+
 JeuSerpentEchelle::JeuSerpentEchelle()
     : F_Jeu()
 {
@@ -22,6 +25,31 @@ JeuSerpentEchelle::JeuSerpentEchelle()
 JeuSerpentEchelle::~JeuSerpentEchelle()
 {
     // Vide
+}
+
+
+void JeuSerpentEchelle::creerJoueur()
+{
+    string nom;
+
+    cout << "Saisir nom : " << endl;
+    cin >> nom;
+
+    size_t pos = nom.find(nomIA);
+
+    if(pos == string::npos)
+        joueurs.push_back(new Joueurhumain(nom,1));
+    else
+        joueurs.push_back(new JoueurIA(nom,1));
+}
+
+
+void JeuSerpentEchelle::partieGagne(F_Joueur& j)
+{
+    for(vector<F_Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
+    {
+        liste_affichage[i]->afficherGagnant(j);
+    }
 }
 
 
@@ -39,22 +67,14 @@ void JeuSerpentEchelle::demarrer()
 
     if(nbj == 1)
     {
-        string nom = "Gumi";
-        /*cout << "Saisir nom : " << endl;
-        cin >> nom;*/
-
-        joueurs.push_back(new Joueurhumain(nom,1));
+        creerJoueur();
         joueurs.push_back(new JoueurIA("IA",1));
     }
     else
     {
         for(int i = 0; i < nbj; i++)
         {
-            string nom_joueur;
-            cout << "Saisir nom : " << endl;
-            cin >> nom_joueur;
-
-            joueurs.push_back(new Joueurhumain(nom_joueur,1));
+            creerJoueur();
         }
     }
 
@@ -70,24 +90,30 @@ void JeuSerpentEchelle::lancerPartie()
     while(!stop)
     {
         cout << "\n> Tour n° " << tour << endl << endl;
-        cout << " ==== Etat plateau ====" << endl;
 
         for(vector<F_Joueur *>::size_type i = 0; i < joueurs.size(); i++)
         {
             joueurs[i]->jouer();
 
             // Affichage position du joueur
-            for(vector<F_Afficheur *>::size_type i = 0; i < liste_affichage.size(); i++)
+            for(vector<F_Afficheur *>::size_type j = 0; j < liste_affichage.size(); j++)
             {
-                liste_affichage[i]->afficherPositionJoueur(*(joueurs[i]));
-                liste_affichage[i]->afficherJeu();
+                liste_affichage[j]->afficherPositionJoueur(*(joueurs[i]));
             }
 
             if(joueurs[i]->gagne())
             {
                 stop = true;
+                partieGagne(*(joueurs[i]));
                 break;
             }
+        }
+
+        cout << " ==== Etat plateau ====" << endl;
+        // Etat du jeu
+        for(vector<F_Afficheur *>::size_type j = 0; j < liste_affichage.size(); j++)
+        {
+            liste_affichage[j]->afficherJeu();
         }
         cout << " ======================" << endl;
         tour++;

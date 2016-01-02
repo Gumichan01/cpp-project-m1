@@ -30,7 +30,21 @@ public:
     */
     virtual void afficherJeu() = 0;
 
+    /**
+    *   @fn virtual void afficherPositionJoueur(F_Joueur& j)
+    *
+    *   Afficher La position du joueur
+    *
+    */
     virtual void afficherPositionJoueur(F_Joueur& j) = 0;
+
+    /**
+    *   @fn virtual void afficherGagnant(F_Joueur& j)
+    *
+    *   Afficher le nom du gagnant
+    *
+    */
+    virtual void afficherGagnant(F_Joueur& j) = 0;
 
     virtual ~F_Afficheur();
 };

@@ -10,7 +10,7 @@ using namespace std;
 
 
 Joueurhumain::Joueurhumain(std::string n,int nbPions, int sc)
-    : F_Joueur(n,nbPions,sc), passe_tour(false)
+    : JoueurIA(n,nbPions,sc)
 
 {
     // Vide
@@ -24,6 +24,34 @@ Joueurhumain::~Joueurhumain()
 
 
 void Joueurhumain::jouer()
+{
+    cout << nom << ", c'est à votre tour !" << endl
+         << " Appuyez sur Entrée pour jouer !" << endl;
+    cin.ignore();
+    JoueurIA::jouer();
+}
+
+
+bool JoueurIA::gagne()
+{
+    F_Plateau *plateau = F_Plateau::getInstance();
+
+    for(F_Pion p : pions)
+    {
+        if(p.getPosition() != static_cast<int>(plateau->taille()) -1)
+            return false;
+    }
+    return true;
+}
+
+
+JoueurIA::JoueurIA(std::string n,int nbPions, int sc)
+    : F_Joueur(n,nbPions,sc), passe_tour(false)
+{
+    // Vide
+}
+
+void JoueurIA::jouer()
 {
     if(passe_tour)
     {
@@ -100,30 +128,9 @@ void Joueurhumain::jouer()
                 pions[0].setPosition(position);
                 case_suivante.ajoutPion(pions[0]);
                 break ;
-
             }
         }
     }
-}
-
-
-bool Joueurhumain::gagne()
-{
-    F_Plateau *plateau = F_Plateau::getInstance();
-
-    for(F_Pion p : pions)
-    {
-        if(p.getPosition() != static_cast<int>(plateau->taille()) -1)
-            return false;
-    }
-    return true;
-}
-
-
-JoueurIA::JoueurIA(std::string n,int nbPions, int sc)
-    : Joueurhumain(n,nbPions,sc)
-{
-    // Vide
 }
 
 
@@ -131,5 +138,8 @@ JoueurIA::~JoueurIA()
 {
     // Vide
 }
+
+
+
 
 
