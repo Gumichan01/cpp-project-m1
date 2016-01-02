@@ -82,6 +82,7 @@ void JeuSerpentEchelle::demarrer()
     ajoutSystemeAffichage(new AfficheurSerpent());
 }
 
+
 void JeuSerpentEchelle::lancerPartie()
 {
     int tour = 1;

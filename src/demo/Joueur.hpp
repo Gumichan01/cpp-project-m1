@@ -20,9 +20,7 @@ public:
 };
 
 
-
-
-
+// Joueur humain
 class Joueurhumain : public JoueurIA
 {
 
@@ -32,6 +30,19 @@ public:
 
     virtual ~Joueurhumain();
 };
+
+
+
+class JoueurhumainPedago : public Joueurhumain
+{
+
+public:
+    JoueurhumainPedago(std::string n,int nbPions, int sc = 0);
+    virtual void jouer();
+
+    virtual ~JoueurhumainPedago();
+};
+
 
 
 #endif // JOUEURHUMAIN_HPP_INCLUDED
