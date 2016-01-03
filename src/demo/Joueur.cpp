@@ -3,6 +3,7 @@
 #include "../framework/F_Pion.hpp"
 #include "../framework/F_Plateau.hpp"
 #include "../framework/F_Case.hpp"
+#include "JeuPedago.hpp"
 
 #include <iostream>
 
@@ -25,7 +26,7 @@ Joueurhumain::~Joueurhumain()
 
 void Joueurhumain::jouer()
 {
-    cout << nom << ", c'est à votre tour !" << endl
+    cout << " " << nom << ", c'est à votre tour !" << endl
          << " Appuyez sur Entrée pour jouer !" << endl;
     cin.ignore();
     JoueurIA::jouer();
@@ -151,7 +152,8 @@ JoueurIAPedago::JoueurIAPedago(std::string n,int nbPions, int sc)
 void JoueurIAPedago::jouer()
 {
     ///@todo Question
-    JoueurIA::jouer();
+    if(JeuPedago::quiz(*this,rand()%100 +1))
+        JoueurIA::jouer();
 }
 
 
@@ -168,11 +170,11 @@ JoueurhumainPedago::JoueurhumainPedago(std::string n,int nbPions, int sc)
 }
 
 
-
 void JoueurhumainPedago::jouer()
 {
     ///@todo Question
-    Joueurhumain::jouer();
+    if(JeuPedago::quiz(*this))
+        Joueurhumain::jouer();
 }
 
 

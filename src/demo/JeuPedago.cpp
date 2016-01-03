@@ -3,6 +3,7 @@
 #include "JeuPedago.hpp"
 #include "Afficheur.hpp"
 #include "../framework/F_Plateau.hpp"
+#include "../framework/F_Joueur.hpp"
 #include "Joueur.hpp"
 
 using namespace std;
@@ -17,6 +18,37 @@ JeuPedago::JeuPedago()
 JeuPedago::~JeuPedago()
 {
     // Vide
+}
+
+
+bool JeuPedago::quiz(F_Joueur& j,int rep)
+{
+    int x,y,z;
+    int reponse;
+
+    x = rand() %10 +1;
+    y = rand() %10 +1;
+    z = x*y;
+
+    cout << "Combien font : " << x << "*" << y << " ?" << endl;
+
+    if(rep == -1)
+        cin >> reponse;
+    else
+        reponse = rep;
+
+    cout << " " << j.getNom() << " propose " << reponse << endl;
+
+    if(reponse == z)
+    {
+        cout << " Bonne réponse ! " << endl;
+        return true;
+    }
+    else
+    {
+        cout << " Mauvaise réponse ! " << x << "*" << y << " = " << z << endl;
+        return false;
+    }
 }
 
 

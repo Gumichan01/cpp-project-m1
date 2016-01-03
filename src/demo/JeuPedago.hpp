@@ -11,6 +11,8 @@ protected:
 
 public:
 
+    static bool quiz(F_Joueur& j,int rep = -1);
+
     JeuPedago();
     virtual void demarrer();
     ~JeuPedago();
