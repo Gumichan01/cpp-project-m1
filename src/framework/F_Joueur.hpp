@@ -29,6 +29,7 @@ public:
     std::string getNom();
     int getPosition();
     int getScore();
+    const std::vector<F_Pion>& getPions();
 
     void setScore(int newScore);
     virtual ~F_Joueur();

@@ -10,6 +10,7 @@ static F_Plateau *singleton = nullptr;
 F_Plateau::F_Plateau(int nbCases,bool isProcedural)
     : cases(nbCases + 1)
 {
+
     if(isProcedural)
         generationProcedural();
     else
@@ -27,7 +28,7 @@ F_Plateau::~F_Plateau()
     }
 }
 
-// Créer le singlaton
+// Créer le singleton
 void F_Plateau::init(int nbCases, bool isProcedural)
 {
     if(singleton == nullptr)

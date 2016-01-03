@@ -40,6 +40,14 @@ int F_Joueur::getScore()
     return score;
 }
 
+
+const std::vector<F_Pion>& F_Joueur::getPions()
+{
+    return pions;
+}
+
+
+
 // Changer son score
 void F_Joueur::setScore(int newScore)
 {
