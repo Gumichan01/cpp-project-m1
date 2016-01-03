@@ -10,6 +10,8 @@
 using namespace std;
 
 
+/** Joueurs du jeu classique */
+
 Joueurhumain::Joueurhumain(std::string n,int nbPions, int sc)
     : JoueurIA(n,nbPions,sc)
 
@@ -149,9 +151,11 @@ JoueurIAPedago::JoueurIAPedago(std::string n,int nbPions, int sc)
 }
 
 
+/** Joueur de la variante pédagogique */
+
+
 void JoueurIAPedago::jouer()
 {
-    ///@todo Question
     if(JeuPedago::quiz(*this,rand()%100 +1))
         JoueurIA::jouer();
 }
@@ -172,7 +176,6 @@ JoueurhumainPedago::JoueurhumainPedago(std::string n,int nbPions, int sc)
 
 void JoueurhumainPedago::jouer()
 {
-    ///@todo Question
     if(JeuPedago::quiz(*this))
         Joueurhumain::jouer();
 }
@@ -184,13 +187,117 @@ JoueurhumainPedago::~JoueurhumainPedago()
 }
 
 
+/** Joueurs de la variante multi-pion */
 
 
+JoueurIAMultiPions::JoueurIAMultiPions(std::string n,int nbPions, int sc)
+    : JoueurIA(n,nbPions,sc)
+{
+    // Vide
+}
+
+void JoueurIAMultiPions::jouer()
+{
+    if(passe_tour)
+    {
+        passe_tour = false;
+    }
+    else
+    {
+        // Lancer les dés
+        int des = rand() %6 + 1;
+        int position = pions[0].getPosition() + des;
+
+        // Récuperer le plateau pour intéragir avec
+        F_Plateau * plateau = F_Plateau::getInstance();
+
+        // Le joueur quitte la case courant s'il y est
+        if(pions[0].getPosition() > -1)
+        {
+            F_Case& case_courante = plateau->operator[](pions[0].getPosition());  // Avoir la case d'où le joueur part
+            case_courante.enleverPion(pions[0].getIdJoueur());
+        }
+
+        cout << " " << nom << " a lancé " << des << endl;
+
+        if(static_cast<unsigned int>(position) >= plateau->taille())
+        {
+            position = (plateau->taille() - 1) - (position - (plateau->taille() - 1) );
+        }
 
 
+        F_Case& case_suivante = plateau->operator[](position);  // Avoir la case où le joueur va atterrir
+
+        if(!case_suivante.estVide())
+        {
+            // Retour à la case départ
+            pions[0].setPosition(0);
+            plateau->operator[](0).ajoutPion(pions[0]);
+        }
+        else
+        {
+            cout << " " << nom << " arrive à la case " << position << endl;
+            // Selon le type de la case, effectuer une action donnée
+            switch(case_suivante.getType())
+            {
+            case SAUT : // Echelle ou serpent
+            {
+                if(case_suivante.getSautCase() > position)
+                    cout << " " << nom << " prend l'ECHELLE" << endl;
+                else
+                    cout << " " << nom << " se prend un serpent" << endl;
+
+                pions[0].setPosition(case_suivante.getSautCase());
+                plateau->operator[](case_suivante.getSautCase()).ajoutPion(pions[0]);
+            }
+            break;
+
+            case REJOUER :
+            {
+                cout << " " << " Case SOLEIL : " << nom << " rejoue" << endl;
+                pions[0].setPosition(position);
+                case_suivante.ajoutPion(pions[0]);
+                jouer();
+            }
+            break;
+
+            case PASSE :
+            {
+                cout << " " << " Case PASSE : " << nom << " passe son tour" << endl;
+                pions[0].setPosition(position);
+                case_suivante.ajoutPion(pions[0]);
+                passe_tour = true;
+            }
+            break;
+
+            default :
+                pions[0].setPosition(position);
+                case_suivante.ajoutPion(pions[0]);
+                break ;
+            }
+        }
+    }
+}
 
 
+JoueurIAMultiPions::~JoueurIAMultiPions()
+{
+    // Vide
+}
 
+
+// Joueur humain
+JoueurhumainMultiPions::JoueurhumainMultiPions(std::string n,int nbPions, int sc)
+    : Joueurhumain(n,nbPions,sc)
+{
+    // Vide
+}
+
+
+JoueurhumainMultiPions::~JoueurhumainMultiPions()
+{
+    // Vide
+}
 
 
 

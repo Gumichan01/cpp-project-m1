@@ -4,7 +4,9 @@
 #include "../framework/F_Joueur.hpp"
 
 
+/** Joueurs du jeu classique */
 
+// Joueur IA du jeux classique
 class JoueurIA : public F_Joueur
 {
 protected:
@@ -32,6 +34,9 @@ public:
 };
 
 
+/** Joueur de la variante pédagogique */
+
+// Joueur IA du jeu pédagogique
 class JoueurIAPedago : public JoueurIA
 {
 
@@ -43,6 +48,7 @@ public:
 };
 
 
+// Joueur humain du jeu pédagogique
 class JoueurhumainPedago : public Joueurhumain
 {
 
@@ -53,6 +59,31 @@ public:
     virtual ~JoueurhumainPedago();
 };
 
+
+/** Joueurs de la variante multi-pion */
+
+// Joueur IA du jeu pédagogique
+class JoueurIAMultiPions : public JoueurIA
+{
+
+public:
+    JoueurIAMultiPions(std::string n,int nbPions, int sc = 0);
+    virtual void jouer();
+
+    virtual ~JoueurIAMultiPions();
+};
+
+
+// Joueur humain du jeu multi pions
+class JoueurhumainMultiPions : public Joueurhumain
+{
+
+public:
+    JoueurhumainMultiPions(std::string n,int nbPions, int sc = 0);
+    //virtual void jouer();
+
+    virtual ~JoueurhumainMultiPions();
+};
 
 
 #endif // JOUEURHUMAIN_HPP_INCLUDED
