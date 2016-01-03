@@ -11,6 +11,7 @@ class JoueurIA : public F_Joueur
 {
 protected:
     bool passe_tour;
+    void jouerPion(int num_pion = 0);
 
 public:
     JoueurIA(std::string n,int nbPions, int sc = 0);
@@ -68,7 +69,7 @@ class JoueurIAMultiPions : public JoueurIA
 
 public:
     JoueurIAMultiPions(std::string n,int nbPions, int sc = 0);
-    virtual void jouer();
+    //virtual void jouer();
 
     virtual ~JoueurIAMultiPions();
 };
