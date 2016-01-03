@@ -13,8 +13,8 @@ using namespace std;
 /** Joueurs du jeu classique */
 
 /// Joueur humain
-Joueurhumain::Joueurhumain(std::string n,int nbPions, int sc)
-    : JoueurIA(n,nbPions,sc)
+Joueurhumain::Joueurhumain(std::string n,int nbPions)
+    : JoueurIA(n,nbPions)
 
 {
     // Vide
@@ -50,8 +50,8 @@ bool JoueurIA::gagne()
 }
 
 
-JoueurIA::JoueurIA(std::string n,int nbPions, int sc)
-    : F_Joueur(n,nbPions,sc), passe_tour(false)
+JoueurIA::JoueurIA(std::string n,int nbPions)
+    : F_Joueur(n,nbPions), passe_tour(false)
 {
     // Vide
 }
@@ -161,8 +161,8 @@ JoueurIA::~JoueurIA()
 /** Joueur de la variante pédagogique */
 
 /// Joueur IA
-JoueurIAPedago::JoueurIAPedago(std::string n,int nbPions, int sc)
-    : JoueurIA(n,nbPions,sc)
+JoueurIAPedago::JoueurIAPedago(std::string n,int nbPions)
+    : JoueurIA(n,nbPions)
 {
 
 }
@@ -181,8 +181,8 @@ JoueurIAPedago::~JoueurIAPedago()
 
 
 /// Joueur humain
-JoueurhumainPedago::JoueurhumainPedago(std::string n,int nbPions, int sc)
-    : Joueurhumain(n,nbPions,sc)
+JoueurhumainPedago::JoueurhumainPedago(std::string n,int nbPions)
+    : Joueurhumain(n,nbPions)
 {
 
 }
@@ -204,8 +204,8 @@ JoueurhumainPedago::~JoueurhumainPedago()
 /** Joueurs de la variante multi-pion */
 
 /// Joueur IA
-JoueurIAMultiPions::JoueurIAMultiPions(std::string n,int nbPions, int sc)
-    : JoueurIA(n,nbPions,sc)
+JoueurIAMultiPions::JoueurIAMultiPions(std::string n,int nbPions)
+    : JoueurIA(n,nbPions)
 {
     // Vide
 }
@@ -225,8 +225,10 @@ void JoueurIAMultiPions::jouer()
     int id_pion = 0;
     int min_pos = F_Plateau::getInstance()->taille() +1;
 
-    // On veut récupére l'indice du pion le plus éloigné
-    // Pour cela, on regarde la position du pion
+    /*
+        On veut récupére l'indice du pion le plus éloigné
+        Pour cela, on regarde la position du pion
+    */
     for(int i = 0; i < sz; i++)
     {
         int pos = pions[i].getPosition();
@@ -252,8 +254,8 @@ JoueurIAMultiPions::~JoueurIAMultiPions()
 
 
 /// Joueur humain
-JoueurhumainMultiPions::JoueurhumainMultiPions(std::string n,int nbPions, int sc)
-    : Joueurhumain(n,nbPions,sc)
+JoueurhumainMultiPions::JoueurhumainMultiPions(std::string n,int nbPions)
+    : Joueurhumain(n,nbPions)
 {
     // Vide
 }

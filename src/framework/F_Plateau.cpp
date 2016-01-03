@@ -10,9 +10,7 @@ F_Plateau::F_Plateau(int nbCases,bool isProcedural)
     : cases(nbCases + 1)
 {
 
-    if(isProcedural)
-        generationProcedural();
-    else
+    if(!isProcedural)
         generationClassique();
 }
 
@@ -151,10 +149,10 @@ void F_Plateau::generationClassique()
     Génère un plateau de manière procédural, les echelles et les serpents
     sont placés aléatoirement
 */
-void F_Plateau::generationProcedural()
+/*void F_Plateau::generationProcedural()
 {
     /// @todo Génération procédural du plateau
-}
+}*/
 
 
 unsigned int F_Plateau::taille()

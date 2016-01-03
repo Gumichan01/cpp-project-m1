@@ -1,10 +1,14 @@
+
+
 #include "F_Joueur.hpp"
 #include "F_Pion.hpp"
 
+
 int F_Joueur::id_compteur = 1;
 
-F_Joueur::F_Joueur(std::string n, int nbPions, int sc)
-    : id(id_compteur++), nom(n), score(sc)
+
+F_Joueur::F_Joueur(std::string n, int nbPions)
+    : id(id_compteur++), nom(n)
 {
     for(int i = 0; i < nbPions; i++)
     {
@@ -18,11 +22,13 @@ F_Joueur::~F_Joueur()
     // Empty
 }
 
+
 // Obtenir son nom
 std::string F_Joueur::getNom()
 {
     return nom;
 }
+
 
 // Position du jeoueur quand il a un pion
 int F_Joueur::getPosition()
@@ -33,23 +39,9 @@ int F_Joueur::getPosition()
         return -1;
 }
 
-// Obtenir son score
-int F_Joueur::getScore()
-{
-    return score;
-}
-
 
 const std::vector<F_Pion>& F_Joueur::getPions()
 {
     return pions;
 }
 
-
-
-// Changer son score
-void F_Joueur::setScore(int newScore)
-{
-    if(newScore >= 0)
-        score = newScore;
-}

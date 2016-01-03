@@ -8,29 +8,35 @@ class F_Pion;
 
 class F_Joueur
 {
-
     static int id_compteur;
 
 protected:
 
-    int id;
-    std::string nom;
-    int score;
-    std::vector<F_Pion> pions;
+    int id;                         /**< Identifiant du joueur */
+    std::string nom;                /**< Nom du joueur */
+    std::vector<F_Pion> pions;      /**< Ses pions */
 
 public:
 
-    F_Joueur(std::string n, int nbPions = 1, int sc = 0);
+    /**
+    *   @fn F_Joueur(std::string n, int nbPions = 1, int sc = 0)
+    *
+    *   Constructeur
+    *
+    *   @param n Nom du joueur
+    *   @param nbPions Nombre de pions à donner au joueur
+    *   @param sc Score du joueur
+    */
+    F_Joueur(std::string n, int nbPions = 1);
 
     virtual void jouer() = 0;   // le joueur joue
     virtual bool gagne() = 0;   // Vérifie si le joueur gagne
 
-    std::string getNom();
-    int getPosition();
-    int getScore();
-    const std::vector<F_Pion>& getPions();
+    std::string getNom();                   /**< Récupère le nom */
+    int getPosition();                      /**< Récupère sa position (celle du premier pion) */
+    int getScore();                         /**< Score */
+    const std::vector<F_Pion>& getPions();  /**< Récupérer la liste des pions */
 
-    void setScore(int newScore);
     virtual ~F_Joueur();
 };
 

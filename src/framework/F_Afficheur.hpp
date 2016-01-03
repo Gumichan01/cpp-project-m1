@@ -15,15 +15,7 @@ class F_Afficheur
 public:
 
     /**
-    *   @fn virtual void afficherMenu()
-    *
-    *   Afficher le menu principal
-    *
-    */
-    virtual void afficherMenu() = 0;
-
-    /**
-    *   @fn virtual void afficherF_Jeu()
+    *   @fn virtual void afficherJeu()
     *
     *   Afficher l'état du F_Jeu
     *
@@ -42,6 +34,7 @@ public:
     *   @fn virtual void afficherGagnant(F_Joueur& j)
     *
     *   Afficher le nom du gagnant
+    *   @param j Le joueur gagnant
     *
     */
     virtual void afficherGagnant(F_Joueur& j) = 0;

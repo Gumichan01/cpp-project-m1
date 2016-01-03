@@ -10,8 +10,8 @@ class F_Jeu
 {
 protected:
 
-    std::vector<F_Joueur *> joueurs;              /* Liste de joueurs */
-    std::vector<F_Afficheur *> liste_affichage;   /* Liste de F_Afficheurs */
+    std::vector<F_Joueur *> joueurs;              /**< Liste de joueurs */
+    std::vector<F_Afficheur *> liste_affichage;   /**< Liste de F_Afficheurs */
 
 public:
 
@@ -20,7 +20,7 @@ public:
     /**
     *   @fn virtual void demarrer()
     *
-    *   Initialise le F_Jeu
+    *   Initialise le jeu
     *
     */
     virtual void demarrer() = 0;
@@ -36,7 +36,7 @@ public:
     /**
     *   @fn virtual void arret()
     *
-    *   Arrête le F_Jeu
+    *   Arrête le jeu
     *
     */
     virtual void arret() = 0;

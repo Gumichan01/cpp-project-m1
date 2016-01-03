@@ -29,21 +29,59 @@ typedef enum {NORMAL,SAUT,REJOUER,PASSE} TYPE_CASE;
 class F_Case
 {
     TYPE_CASE type;
-    int ref_case;      /* indice sur la case à sauter si elle existe, -1 sinon */
+    int ref_case;                   /**< Indice sur la case à sauter si elle existe, -1 sinon */
     bool vide;
-    std::map<int,F_Pion*> pions;
+    std::map<int,F_Pion*> pions;    /**< Liste de pions par clés*/
 
 public:
 
+    /**
+    *   @fn F_Case(TYPE_CASE ty, int ref_ = -1)
+    *
+    *   Constructeur
+    *
+    *   @param ty Le type de case désiré
+    *   @param ref_ L'indice de la case référencé par celui-çi
+    */
     F_Case(TYPE_CASE ty, int ref_ = -1);
 
+    /**
+    *   @fn void ajoutPion(F_Pion& p);
+    *
+    *   Ajoute un pion
+    *
+    *   @param p Le pion à ajouter
+    */
     void ajoutPion(F_Pion& p);
+
+    /**
+    *   @fn void enleverPion(F_Pion& p);
+    *
+    *   Enleve un pion
+    *
+    *   @param p Le pion à enlever
+    */
     void enleverPion(int idPion);
 
+    /**
+    *   @fn int getSautCase()
+    *
+    *   Renvoie la case pointée par une case spéciale
+    *
+    *   @return L'indice de la case pointée, -1 sinon
+    */
     int getSautCase();
+
+    /**
+    *   @fn int getJoueur()
+    *
+    *   Renvoie le joueur présent sur la case
+    *
+    *   @return L'ID du joueur présent,
+    */
     int getJoueur();
-    TYPE_CASE getType();
-    bool estVide();
+    TYPE_CASE getType();    /**< Renvoie le type de la case */
+    bool estVide();         /**< Indique si la case est vide ou non  */
 
     ~F_Case();
 };

@@ -10,14 +10,29 @@ class F_Pion
 
 public:
 
+    /**
+    *   @fn F_Pion(int idJ)
+    *
+    *   Constructeur
+    *
+    *   @param idJ Id du joueur
+    */
     F_Pion(int idJ);
-    F_Pion(const F_Pion& p);
-    F_Pion& operator=(F_Pion p);
 
-    int getID();
-    int getIdJoueur();
-    int getPosition();
-    void setPosition(int pos);
+    /**
+    *   @fn F_Pion(const F_Pion& p)
+    *
+    *   Constructeur de copie
+    *
+    *   @param p pion à copier
+    */
+    F_Pion(const F_Pion& p);
+    F_Pion& operator=(F_Pion p);    /**< Affectation */
+
+    int getID();                    /**< Renvoie l'id du pion */
+    int getIdJoueur();              /**< Renvoie l'id du possesseur */
+    int getPosition();              /**< Renvoie sa position sur le plateau */
+    void setPosition(int pos);      /**< Change sa position */
 
     ~F_Pion();
 };

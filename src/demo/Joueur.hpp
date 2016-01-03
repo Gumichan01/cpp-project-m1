@@ -14,7 +14,7 @@ protected:
     void jouerPion(int num_pion = 0);
 
 public:
-    JoueurIA(std::string n,int nbPions, int sc = 0);
+    JoueurIA(std::string n,int nbPions);
 
     virtual void jouer();
     virtual bool gagne();
@@ -28,7 +28,7 @@ class Joueurhumain : public JoueurIA
 {
 
 public:
-    Joueurhumain(std::string n,int nbPions, int sc = 0);
+    Joueurhumain(std::string n,int nbPions);
     virtual void jouer();
 
     virtual ~Joueurhumain();
@@ -42,7 +42,7 @@ class JoueurIAPedago : public JoueurIA
 {
 
 public:
-    JoueurIAPedago(std::string n,int nbPions, int sc = 0);
+    JoueurIAPedago(std::string n,int nbPions);
     virtual void jouer();
 
     virtual ~JoueurIAPedago();
@@ -54,7 +54,7 @@ class JoueurhumainPedago : public Joueurhumain
 {
 
 public:
-    JoueurhumainPedago(std::string n,int nbPions, int sc = 0);
+    JoueurhumainPedago(std::string n,int nbPions);
     virtual void jouer();
 
     virtual ~JoueurhumainPedago();
@@ -68,7 +68,7 @@ class JoueurIAMultiPions : public JoueurIA
 {
 
 public:
-    JoueurIAMultiPions(std::string n,int nbPions, int sc = 0);
+    JoueurIAMultiPions(std::string n,int nbPions);
     virtual void jouer();
 
     virtual ~JoueurIAMultiPions();
@@ -80,7 +80,7 @@ class JoueurhumainMultiPions : public Joueurhumain
 {
 
 public:
-    JoueurhumainMultiPions(std::string n,int nbPions, int sc = 0);
+    JoueurhumainMultiPions(std::string n,int nbPions);
     virtual void jouer();
 
     virtual ~JoueurhumainMultiPions();
