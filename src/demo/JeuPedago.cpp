@@ -1,5 +1,4 @@
 
-
 #include "JeuPedago.hpp"
 #include "Afficheur.hpp"
 #include "../framework/F_Plateau.hpp"

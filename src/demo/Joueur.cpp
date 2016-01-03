@@ -1,4 +1,3 @@
-
 #include "Joueur.hpp"
 #include "../framework/F_Pion.hpp"
 #include "../framework/F_Plateau.hpp"
@@ -228,7 +227,7 @@ void JoueurIAMultiPions::jouer()
 
     // On veut récupére l'indice du pion le plus éloigné
     // Pour cela, on regarde la position du pion
-    for(int i = 0; i < sz;i++)
+    for(int i = 0; i < sz; i++)
     {
         int pos = pions[i].getPosition();
 
@@ -273,9 +272,11 @@ void JoueurhumainMultiPions::jouer()
              << pions[i].getPosition() << endl;
     }
 
-    do{
+    do
+    {
         cin >> id_pion;
-    }while(id_pion < 0 || id_pion >= sz);
+    }
+    while(id_pion < 0 || id_pion >= sz);
 
     // Selection faite, on peut jouer le pion
     jouerPion(id_pion);

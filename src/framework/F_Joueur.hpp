@@ -1,4 +1,3 @@
-
 #ifndef JOUEUR_HPP
 #define JOUEUR_HPP
 
@@ -10,7 +9,7 @@ class F_Pion;
 class F_Joueur
 {
 
-static int id_compteur;
+    static int id_compteur;
 
 protected:
 

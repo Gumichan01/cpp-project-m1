@@ -1,4 +1,3 @@
-
 #include <vector>
 #include <string>
 #include <iostream>
@@ -59,16 +58,17 @@ int JeuSerpentEchelle::nbJoueurs()
 
     do
     {
-        cout << "Nombre de joueurs de 1 (contre l'ordinateur) à 4 joueurs : "
-             << endl;
+        cout << "Nombre de joueurs de 1 (contre l'ordinateur)"
+             << " à 4 joueurs : " << endl;
         cin >> nbj;
 
-    }while(nbj < 1 || nbj > 4);
+    }
+    while(nbj < 1 || nbj > 4);
 
     return nbj;
 }
 
-
+// Initialisation du jeu
 void JeuSerpentEchelle::demarrer()
 {
     int nbj = nbJoueurs();
@@ -90,7 +90,7 @@ void JeuSerpentEchelle::demarrer()
     ajoutSystemeAffichage(new AfficheurSerpent());
 }
 
-
+// On lance la partie jusqu'à ce qu'on ait un vainqueur
 void JeuSerpentEchelle::lancerPartie()
 {
     int tour = 1;
@@ -104,7 +104,7 @@ void JeuSerpentEchelle::lancerPartie()
         {
             joueurs[i]->jouer();
 
-            // Affichage position du joueur
+            // Affichage de la position du joueur
             for(vector<F_Afficheur *>::size_type j = 0; j < liste_affichage.size(); j++)
             {
                 liste_affichage[j]->afficherPositionJoueur(*(joueurs[i]));
@@ -120,8 +120,8 @@ void JeuSerpentEchelle::lancerPartie()
 
         if(!stop)
         {
-            cout << " ==== Etat plateau ====" << endl;
             // Etat du jeu
+            cout << " ==== Etat plateau ====" << endl;
             for(vector<F_Afficheur *>::size_type j = 0; j < liste_affichage.size(); j++)
             {
                 liste_affichage[j]->afficherJeu();
@@ -132,6 +132,7 @@ void JeuSerpentEchelle::lancerPartie()
     }
 }
 
+// Fin du jeu
 void JeuSerpentEchelle::arret()
 {
     F_Plateau::detruire();

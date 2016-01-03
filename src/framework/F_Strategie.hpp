@@ -1,4 +1,3 @@
-
 #ifndef STRAT_HPP
 #define STRAT_HPP
 

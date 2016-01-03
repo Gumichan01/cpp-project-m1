@@ -1,5 +1,4 @@
 
-
 #include "F_Strategie.hpp"
 
 

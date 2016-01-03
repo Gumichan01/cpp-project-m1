@@ -8,7 +8,7 @@ class F_Joueur;
 
 class JeuSerpentEchelle : public F_Jeu
 {
-
+    // Indique que le joueur donné en paramètre a gagné
     void partieGagne(F_Joueur& j);
 
 protected:

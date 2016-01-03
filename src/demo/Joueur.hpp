@@ -10,7 +10,7 @@
 class JoueurIA : public F_Joueur
 {
 protected:
-    bool passe_tour;
+    bool passe_tour;                    // Indique si le joueur passe son tour
     void jouerPion(int num_pion = 0);
 
 public:

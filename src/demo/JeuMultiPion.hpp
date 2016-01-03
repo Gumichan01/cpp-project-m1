@@ -8,9 +8,9 @@
 // Classe décrivant le jeu avec plusieurs pions
 class JeuMultiPion : public JeuSerpentEchelle
 {
-    static int nb_pions;
-    static const int MAX_PIONS = 16;
-    int saisieNbPions();
+    static int nb_pions;                // Nombre de pions à donner aux joueurs
+    static const int MAX_PIONS = 16;    // Nombre maximale de pions par joueur
+    int saisieNbPions();                // Saisie du nombre de pions
 
 protected:
     virtual void creerJoueur();

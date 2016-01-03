@@ -1,5 +1,4 @@
 
-
 #include "F_Pion.hpp"
 
 int F_Pion::id_compteur = 1;

@@ -1,5 +1,4 @@
 
-
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -38,22 +37,20 @@ int main(int argc,char **argv)
     // option est bien de taille 2
     switch(option[1])
     {
-        case '1':   jeu = new JeuSerpentEchelle();
-                    break;
+    case '1':
+        jeu = new JeuSerpentEchelle();
+        break;
 
-        case '2':   jeu = new JeuPedago();
-                    break;
+    case '2':
+        jeu = new JeuPedago();
+        break;
 
-        case '3':   jeu = new JeuMultiPion();
-                    break;
+    case '3':
+        jeu = new JeuMultiPion();
+        break;
 
-        case '4':   // Créer le jeu de cartes
-                    break;
-
-        case '5':   // Créer le Numéri
-                    break;
-
-        default : break;
+    default :
+        break;
     }
 
     // Jouer
@@ -79,11 +76,9 @@ int main(int argc,char **argv)
 void usage(string exec)
 {
     cerr << "Usage : " << exec.c_str() << " -[1|2|3|4|5]" << endl;
-    cerr << "-1 : Jeu de base (beta)" << endl;
-    cerr << "-2 : Jeu à variante pédagogique (pas encore disponible) " << endl;
-    cerr << "-3 : Jeu à plusieurs pions (pas encore disponible) " << endl;
-    cerr << "-4 : Jeu sans dés, avec cartes (indisponible)" << endl;
-    cerr << "-5 : Numeri (indisponible)" << endl;
+    cerr << "-1 : Jeu de base" << endl;
+    cerr << "-2 : Jeu à variante pédagogique" << endl;
+    cerr << "-3 : Jeu à plusieurs pions" << endl;
 }
 
 

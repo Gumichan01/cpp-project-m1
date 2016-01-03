@@ -1,5 +1,4 @@
 
-
 #include "JeuMultiPion.hpp"
 #include "Afficheur.hpp"
 #include "../framework/F_Plateau.hpp"
@@ -47,10 +46,12 @@ int JeuMultiPion::saisieNbPions()
 {
     int nb;
 
-    do{
+    do
+    {
         cout << "Saisir le nombre de pions par joueur : " << endl;
         cin >> nb;
-    }while(nb < 0 && nb > MAX_PIONS);
+    }
+    while(nb < 0 && nb > MAX_PIONS);
 
     return nb;
 }

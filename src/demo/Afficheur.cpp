@@ -1,4 +1,3 @@
-
 #include <iostream>
 
 #include "Afficheur.hpp"
@@ -20,7 +19,7 @@ void AfficheurSerpent::afficherMenu()
     // Vide
 }
 
-
+// Indiques les cases non vides du plateau
 void AfficheurSerpent::afficherJeu()
 {
     F_Plateau *plateau = F_Plateau::getInstance();
@@ -35,6 +34,7 @@ void AfficheurSerpent::afficherJeu()
 }
 
 
+// Indique où est le joueur sue le plateau
 void AfficheurSerpent::afficherPositionJoueur(F_Joueur& j)
 {
     cout << " | " << j.getNom() << " est à la case numéro "
@@ -60,7 +60,7 @@ AfficheurMultiPions::AfficheurMultiPions()
     // Vide
 }
 
-
+// Affiche les différent pions du joueur concerné
 void AfficheurMultiPions::afficherPositionJoueur(F_Joueur& j)
 {
     cout << " | " << j.getNom() << " a des pions au positions suivantes " << endl;

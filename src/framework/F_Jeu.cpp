@@ -1,4 +1,3 @@
-
 #include "F_Jeu.hpp"
 #include "F_Joueur.hpp"
 #include "F_Afficheur.hpp"

@@ -1,4 +1,3 @@
-
 #ifndef CASE_HPP
 #define CASE_HPP
 
