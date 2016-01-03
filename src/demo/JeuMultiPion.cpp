@@ -7,8 +7,12 @@
 
 using namespace std;
 
+
+int JeuMultiPion::nb_pions = 1;
+
+
 JeuMultiPion::JeuMultiPion()
-    : JeuSerpentEchelle()
+    : JeuSerpentEchelle(), MAX_PIONS(1024)
 {
     // Vide
 }
@@ -20,30 +24,46 @@ JeuMultiPion::~JeuMultiPion()
 }
 
 
+// Saisir le nom du joueur
 void JeuMultiPion::creerJoueur()
 {
     string nom;
 
-    cout << "Saisir nom : " << endl;
+    cout << "Saisir nom joueur : " << endl;
     cin >> nom;
 
     size_t pos = nom.find(nomIA);
 
     if(pos == string::npos)
-        joueurs.push_back(new JoueurhumainMultiPions(nom,1));
+        joueurs.push_back(new JoueurhumainMultiPions(nom,nb_pions));
     else
-        joueurs.push_back(new JoueurIAMultiPions(nom,1));
+        joueurs.push_back(new JoueurIAMultiPions(nom,nb_pions));
+}
+
+
+// Saisir le nombre de pions
+int JeuMultiPion::saisieNbPions()
+{
+    int nb;
+
+    do{
+        cout << "Saisir le nombre de pions par joueur : " << endl;
+        cin >> nb;
+    }while(nb < 0 && nb > MAX_PIONS);
+
+    return nb;
 }
 
 
 void JeuMultiPion::demarrer()
 {
     int nbj = nbJoueurs();
+    nb_pions = saisieNbPions();
 
     if(nbj == 1)
     {
         creerJoueur();
-        joueurs.push_back(new JoueurIAMultiPions("IA",1));
+        joueurs.push_back(new JoueurIAMultiPions("IA",nb_pions));
     }
     else
     {
@@ -56,3 +76,6 @@ void JeuMultiPion::demarrer()
     F_Plateau::init(100);
     ajoutSystemeAffichage(new AfficheurSerpent());
 }
+
+
+

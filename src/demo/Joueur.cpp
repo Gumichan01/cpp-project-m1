@@ -203,10 +203,21 @@ JoueurIAMultiPions::JoueurIAMultiPions(std::string n,int nbPions, int sc)
     // Vide
 }
 
-/*void JoueurIAMultiPions::jouer()
+void JoueurIAMultiPions::jouer()
 {
+    const int sz = pions.size();
+    int min_pion = 0;
 
-}*/
+    for(int i = 1; i < sz;i++)
+    {
+        if(pions[i].getPosition() < min_pion)
+        {
+            min_pion = i;
+        }
+    }
+
+    jouerPion(min_pion);
+}
 
 
 JoueurIAMultiPions::~JoueurIAMultiPions()
@@ -227,20 +238,4 @@ JoueurhumainMultiPions::~JoueurhumainMultiPions()
 {
     // Vide
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
