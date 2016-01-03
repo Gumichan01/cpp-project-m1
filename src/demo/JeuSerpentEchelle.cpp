@@ -116,13 +116,16 @@ void JeuSerpentEchelle::lancerPartie()
             }
         }
 
-        cout << " ==== Etat plateau ====" << endl;
-        // Etat du jeu
-        for(vector<F_Afficheur *>::size_type j = 0; j < liste_affichage.size(); j++)
+        if(!stop)
         {
-            liste_affichage[j]->afficherJeu();
+            cout << " ==== Etat plateau ====" << endl;
+            // Etat du jeu
+            for(vector<F_Afficheur *>::size_type j = 0; j < liste_affichage.size(); j++)
+            {
+                liste_affichage[j]->afficherJeu();
+            }
+            cout << " ======================" << endl;
         }
-        cout << " ======================" << endl;
         tour++;
     }
 }

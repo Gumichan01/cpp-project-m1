@@ -5,6 +5,7 @@
 #include <cstdlib>
 
 #include "JeuSerpentEchelle.hpp"
+#include "JeuPedago.hpp"
 
 
 using namespace std;
@@ -39,7 +40,7 @@ int main(int argc,char **argv)
         case '1':   jeu = new JeuSerpentEchelle();
                     break;
 
-        case '2':   // Créer le jeu édagogique
+        case '2':   jeu = new JeuPedago();
                     break;
 
         case '3':   // Créer le jeu à plusieurs pions

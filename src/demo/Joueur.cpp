@@ -91,6 +91,7 @@ void JoueurIA::jouer()
         }
         else
         {
+            cout << " " << nom << " arrive à la case " << position << endl;
             // Selon le type de la case, effectuer une action donnée
             switch(case_suivante.getType())
             {
