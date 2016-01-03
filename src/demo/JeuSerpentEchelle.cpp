@@ -59,7 +59,8 @@ int JeuSerpentEchelle::nbJoueurs()
 
     do
     {
-        cout << "Nombre de joueurs(2 à 4 joueurs) : " << endl;
+        cout << "Nombre de joueurs de 1 (contre l'ordinateur) à 4 joueurs : "
+             << endl;
         cin >> nbj;
 
     }while(nbj < 1 || nbj > 4);
