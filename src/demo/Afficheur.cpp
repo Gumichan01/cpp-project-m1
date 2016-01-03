@@ -37,7 +37,8 @@ void AfficheurSerpent::afficherJeu()
 
 void AfficheurSerpent::afficherPositionJoueur(F_Joueur& j)
 {
-    cout << " " << j.getNom() << " est à la case numéro " << j.getPosition()
+    cout << " | " << j.getNom() << " est à la case numéro "
+         << j.getPosition() << ""
          << endl << endl;
 }
 
