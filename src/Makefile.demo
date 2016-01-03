@@ -11,7 +11,8 @@ CC=g++
 CFLAGS=-Wall --std=c++11 -g
 
 # Objets 
-SRC=main.cpp JeuSerpentEchelle.cpp Joueur.cpp Afficheur.cpp JeuPedago.cpp
+SRC=main.cpp JeuSerpentEchelle.cpp Joueur.cpp Afficheur.cpp JeuPedago.cpp \
+JeuMultiPion.cpp
 OBJS=$(SRC:.cpp=.o)
 
 
@@ -50,6 +51,12 @@ $(TEST_PATH)JeuSerpentEchelle.hpp
 JeuPedago.o: $(TEST_PATH)JeuPedago.cpp $(TEST_PATH)JeuPedago.hpp
 	@echo " = Compiler "$<" vers "$@
 	@$(CC) -c -o $@ $< $(CFLAGS)
+
+
+JeuMultiPion.o: $(TEST_PATH)JeuMultiPion.cpp $(TEST_PATH)JeuMultiPion.hpp
+	@echo " = Compiler "$<" vers "$@
+	@$(CC) -c -o $@ $< $(CFLAGS)
+
 
 Joueur.o: $(TEST_PATH)Joueur.cpp $(TEST_PATH)Joueur.hpp
 	@echo " = Compiler "$<" vers "$@
