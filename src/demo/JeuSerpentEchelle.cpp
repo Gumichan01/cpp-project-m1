@@ -12,8 +12,7 @@
 
 using namespace std;
 
-string nomIA = "IA_";
-
+string JeuSerpentEchelle::nomIA = "IA_";
 
 JeuSerpentEchelle::JeuSerpentEchelle()
     : F_Jeu()
@@ -53,10 +52,10 @@ void JeuSerpentEchelle::partieGagne(F_Joueur& j)
 }
 
 
-void JeuSerpentEchelle::demarrer()
+int JeuSerpentEchelle::nbJoueurs()
 {
     int nbj;
-    /// @todo Ajout joueurs
+
     do
     {
         cout << "Nombre de joueurs(2 à 4 joueurs) : " << endl;
@@ -64,6 +63,13 @@ void JeuSerpentEchelle::demarrer()
 
     }while(nbj < 1 || nbj > 4);
 
+    return nbj;
+}
+
+
+void JeuSerpentEchelle::demarrer()
+{
+    int nbj = nbJoueurs();
 
     if(nbj == 1)
     {

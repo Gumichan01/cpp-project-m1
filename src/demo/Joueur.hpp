@@ -32,6 +32,16 @@ public:
 };
 
 
+class JoueurIAPedago : public JoueurIA
+{
+
+public:
+    JoueurIAPedago(std::string n,int nbPions, int sc = 0);
+    virtual void jouer();
+
+    virtual ~JoueurIAPedago();
+};
+
 
 class JoueurhumainPedago : public Joueurhumain
 {

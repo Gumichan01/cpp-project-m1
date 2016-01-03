@@ -140,6 +140,26 @@ JoueurIA::~JoueurIA()
 }
 
 
+JoueurIAPedago::JoueurIAPedago(std::string n,int nbPions, int sc)
+    : JoueurIA(n,nbPions,sc)
+{
+
+}
+
+
+void JoueurIAPedago::jouer()
+{
+    ///@todo Question
+    JoueurIA::jouer();
+}
+
+
+JoueurIAPedago::~JoueurIAPedago()
+{
+    // Vide
+}
+
+
 JoueurhumainPedago::JoueurhumainPedago(std::string n,int nbPions, int sc)
     : Joueurhumain(n,nbPions,sc)
 {
