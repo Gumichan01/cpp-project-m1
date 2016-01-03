@@ -30,9 +30,9 @@ void JeuMultiPion::creerJoueur()
     size_t pos = nom.find(nomIA);
 
     if(pos == string::npos)
-        joueurs.push_back(new JoueurhumainPedago(nom,1));
+        joueurs.push_back(new JoueurhumainMultiPions(nom,1));
     else
-        joueurs.push_back(new JoueurIAPedago(nom,1));
+        joueurs.push_back(new JoueurIAMultiPions(nom,1));
 }
 
 
@@ -43,7 +43,7 @@ void JeuMultiPion::demarrer()
     if(nbj == 1)
     {
         creerJoueur();
-        joueurs.push_back(new JoueurIAPedago("IA",1));
+        joueurs.push_back(new JoueurIAMultiPions("IA",1));
     }
     else
     {

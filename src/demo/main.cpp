@@ -6,6 +6,7 @@
 
 #include "JeuSerpentEchelle.hpp"
 #include "JeuPedago.hpp"
+#include "JeuMultiPion.hpp"
 
 
 using namespace std;
@@ -43,7 +44,7 @@ int main(int argc,char **argv)
         case '2':   jeu = new JeuPedago();
                     break;
 
-        case '3':   // Créer le jeu à plusieurs pions
+        case '3':   jeu = new JeuMultiPion();
                     break;
 
         case '4':   // Créer le jeu de cartes
