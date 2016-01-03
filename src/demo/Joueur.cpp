@@ -13,6 +13,7 @@ using namespace std;
 
 /** Joueurs du jeu classique */
 
+/// Joueur humain
 Joueurhumain::Joueurhumain(std::string n,int nbPions, int sc)
     : JoueurIA(n,nbPions,sc)
 
@@ -36,6 +37,7 @@ void Joueurhumain::jouer()
 }
 
 
+/// Joueur IA
 bool JoueurIA::gagne()
 {
     F_Plateau *plateau = F_Plateau::getInstance();
@@ -157,15 +159,14 @@ JoueurIA::~JoueurIA()
 }
 
 
+/** Joueur de la variante pédagogique */
+
+/// Joueur IA
 JoueurIAPedago::JoueurIAPedago(std::string n,int nbPions, int sc)
     : JoueurIA(n,nbPions,sc)
 {
 
 }
-
-
-/** Joueur de la variante pédagogique */
-
 
 void JoueurIAPedago::jouer()
 {
@@ -180,6 +181,7 @@ JoueurIAPedago::~JoueurIAPedago()
 }
 
 
+/// Joueur humain
 JoueurhumainPedago::JoueurhumainPedago(std::string n,int nbPions, int sc)
     : Joueurhumain(n,nbPions,sc)
 {
@@ -202,7 +204,7 @@ JoueurhumainPedago::~JoueurhumainPedago()
 
 /** Joueurs de la variante multi-pion */
 
-
+/// Joueur IA
 JoueurIAMultiPions::JoueurIAMultiPions(std::string n,int nbPions, int sc)
     : JoueurIA(n,nbPions,sc)
 {
@@ -250,7 +252,7 @@ JoueurIAMultiPions::~JoueurIAMultiPions()
 }
 
 
-// Joueur humain
+/// Joueur humain
 JoueurhumainMultiPions::JoueurhumainMultiPions(std::string n,int nbPions, int sc)
     : Joueurhumain(n,nbPions,sc)
 {
@@ -260,9 +262,23 @@ JoueurhumainMultiPions::JoueurhumainMultiPions(std::string n,int nbPions, int sc
 
 void JoueurhumainMultiPions::jouer()
 {
-    Joueurhumain::jouer();
-    /*cout << << endl;
-    jouerPion(id_pion);*/
+    const int sz = pions.size();
+    int id_pion;
+
+    cout << " Selectionnez l'indice du pion que vous voulez utiliser : " << endl;
+
+    for(int i = 0; i < sz; i++)
+    {
+        cout << "  - Pion " << i << " à la position "
+             << pions[i].getPosition() << endl;
+    }
+
+    do{
+        cin >> id_pion;
+    }while(id_pion < 0 || id_pion >= sz);
+
+    // Selection faite, on peut jouer le pion
+    jouerPion(id_pion);
 }
 
 
