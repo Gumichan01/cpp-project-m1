@@ -4,6 +4,7 @@
 #include "../framework/F_Plateau.hpp"
 #include "../framework/F_Case.hpp"
 #include "JeuPedago.hpp"
+#include "JeuMultiPion.hpp"
 
 #include <iostream>
 
@@ -205,18 +206,34 @@ JoueurIAMultiPions::JoueurIAMultiPions(std::string n,int nbPions, int sc)
 
 void JoueurIAMultiPions::jouer()
 {
-    const int sz = pions.size();
-    int min_pion = 0;
+    /**
+        = Algo IA standard pour le multi-pions =
 
-    for(int i = 1; i < sz;i++)
+        On fait avancer en priorité les pions
+        les plus éloignés de la case final
+
+        NB :    Si tous les pions sont à la même position,
+                l'indice des pions prévaut
+    */
+    const int sz = pions.size();
+    int id_pion = 0;
+    int min_pos = JeuMultiPion::getMaxPions();
+
+    // On veut récupére l'indice du pion le plus éloigné
+    // Pour cela, on regarde la position du pion
+    for(int i = 0; i < sz;i++)
     {
-        if(pions[i].getPosition() < min_pion)
+        int pos = pions[i].getPosition();
+
+        if(pos < min_pos)
         {
-            min_pion = i;
+            id_pion = i;    // Indice
+            min_pos = pos;  // Mise à jour de la position (la plus éloigée)
         }
     }
 
-    jouerPion(min_pion);
+    // Enfin, on joue avec le pion selectionné
+    jouerPion(id_pion);
 }
 
 

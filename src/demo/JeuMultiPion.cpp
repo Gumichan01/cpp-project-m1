@@ -12,7 +12,7 @@ int JeuMultiPion::nb_pions = 1;
 
 
 JeuMultiPion::JeuMultiPion()
-    : JeuSerpentEchelle(), MAX_PIONS(1024)
+    : JeuSerpentEchelle()
 {
     // Vide
 }
@@ -74,8 +74,12 @@ void JeuMultiPion::demarrer()
     }
 
     F_Plateau::init(100);
-    ajoutSystemeAffichage(new AfficheurSerpent());
+    ajoutSystemeAffichage(new AfficheurMultiPions());
 }
 
 
+const int JeuMultiPion::getMaxPions()
+{
+    return MAX_PIONS;
+}
 

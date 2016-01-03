@@ -54,3 +54,43 @@ AfficheurSerpent::~AfficheurSerpent()
     // Vide
 }
 
+
+AfficheurMultiPions::AfficheurMultiPions()
+{
+    // Vide
+}
+
+
+void AfficheurMultiPions::afficherPositionJoueur(F_Joueur& j)
+{
+    cout << " | " << j.getNom() << " a des pions au positions suivantes " << endl;
+    cout << " -> ";
+
+    for(F_Pion p : j.getPions())
+    {
+        cout << p.getPosition() << " ";
+    }
+}
+
+
+AfficheurMultiPions::~AfficheurMultiPions()
+{
+    // Vide
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
