@@ -31,6 +31,7 @@ void JeuMultiPion::creerJoueur()
 
     cout << "Saisir nom joueur : " << endl;
     cin >> nom;
+    cin.ignore();
 
     size_t pos = nom.find(nomIA);
 

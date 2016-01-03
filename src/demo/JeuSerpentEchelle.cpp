@@ -33,6 +33,7 @@ void JeuSerpentEchelle::creerJoueur()
 
     cout << "Saisir nom : " << endl;
     cin >> nom;
+    cin.ignore();
 
     size_t pos = nom.find(nomIA);
 

@@ -88,15 +88,17 @@ void JoueurIA::jouerPion(int num_pion)
 
         F_Case& case_suivante = plateau->operator[](position);  // Avoir la case où le joueur va atterrir
 
+        cout << " " << nom << " arrive à la case " << position << endl;
+
         if(!case_suivante.estVide())
         {
             // Retour à la case départ
+            cout << " Helas, cette case est déjà occupé. Retour à la case départ !" << endl;
             pions[num_pion].setPosition(0);
             plateau->operator[](0).ajoutPion(pions[num_pion]);
         }
         else
         {
-            cout << " " << nom << " arrive à la case " << position << endl;
             // Selon le type de la case, effectuer une action donnée
             switch(case_suivante.getType())
             {
@@ -249,6 +251,15 @@ JoueurhumainMultiPions::JoueurhumainMultiPions(std::string n,int nbPions, int sc
 {
     // Vide
 }
+
+
+void JoueurhumainMultiPions::jouer()
+{
+    Joueurhumain::jouer();
+    /*cout << << endl;
+    jouerPion(id_pion);*/
+}
+
 
 
 JoueurhumainMultiPions::~JoueurhumainMultiPions()
