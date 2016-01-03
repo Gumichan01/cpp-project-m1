@@ -92,10 +92,13 @@ void JoueurIA::jouerPion(int num_pion)
 
         if(!case_suivante.estVide())
         {
-            // Retour à la case départ
-            cout << " Helas, cette case est déjà occupé. Retour à la case départ !" << endl;
-            pions[num_pion].setPosition(0);
-            plateau->operator[](0).ajoutPion(pions[num_pion]);
+            if(position != 100)
+            {
+                // Retour à la case départ
+                cout << " Helas, cette case est déjà occupé. Retour à la case départ !" << endl;
+                pions[num_pion].setPosition(0);
+                plateau->operator[](0).ajoutPion(pions[num_pion]);
+            }
         }
         else
         {
@@ -219,7 +222,7 @@ void JoueurIAMultiPions::jouer()
     */
     const int sz = pions.size();
     int id_pion = 0;
-    int min_pos = JeuMultiPion::getMaxPions();
+    int min_pos = F_Plateau::getInstance()->taille() +1;
 
     // On veut récupére l'indice du pion le plus éloigné
     // Pour cela, on regarde la position du pion
@@ -234,6 +237,8 @@ void JoueurIAMultiPions::jouer()
         }
     }
 
+    cout << " " << nom << " utilise le pion à l'indice " << id_pion
+         << " situé à la position " << pions[id_pion].getPosition() << endl;
     // Enfin, on joue avec le pion selectionné
     jouerPion(id_pion);
 }

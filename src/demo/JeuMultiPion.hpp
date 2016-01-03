@@ -9,7 +9,7 @@
 class JeuMultiPion : public JeuSerpentEchelle
 {
     static int nb_pions;
-    static const int MAX_PIONS = 1024;
+    static const int MAX_PIONS = 16;
     int saisieNbPions();
 
 protected:

@@ -70,6 +70,7 @@ void AfficheurMultiPions::afficherPositionJoueur(F_Joueur& j)
     {
         cout << p.getPosition() << " ";
     }
+    cout << endl << endl;
 }
 
 
