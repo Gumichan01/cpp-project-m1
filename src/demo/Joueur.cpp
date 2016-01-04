@@ -29,8 +29,16 @@ Joueurhumain::~Joueurhumain()
 
 void Joueurhumain::jouer()
 {
-    cout << " " << nom << ", c'est à votre tour !" << endl
-         << " Appuyez sur Entrée pour jouer !" << endl;
+    if(passe_tour)
+    {
+        cout << " " << nom << ", vous passez votre tour !" << endl
+             << " Appuyez sur Entrée" << endl;
+    }
+    else
+    {
+        cout << " " << nom << ", c'est à votre tour !" << endl
+             << " Appuyez sur Entrée pour jouer !" << endl;
+    }
     cin.ignore();
     JoueurIA::jouer();
 }
