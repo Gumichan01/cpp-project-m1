@@ -75,7 +75,7 @@ int main(int argc,char **argv)
 
 void usage(string exec)
 {
-    cerr << "Usage : " << exec.c_str() << " -[1|2|3|4|5]" << endl;
+    cerr << "Usage : " << exec.c_str() << " -[1|2|3]" << endl;
     cerr << "-1 : Jeu de base" << endl;
     cerr << "-2 : Jeu à variante pédagogique" << endl;
     cerr << "-3 : Jeu à plusieurs pions" << endl;
