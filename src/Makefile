@@ -19,7 +19,7 @@ doxy:
 	doxygen dox
 
 
-.PHONY : clear clean clean-framework clean-test clear-framework clear-test
+.PHONY : clear clean clean-framework clear-framework
 
 clear: clear-framework
 clean: clean-framework clean-demo
