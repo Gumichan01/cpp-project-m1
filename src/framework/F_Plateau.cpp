@@ -57,6 +57,10 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::SAUT,18);
             break;
 
+        case 4  :
+            cases[i] = new F_Case(TYPE_CASE::PASSE);
+            break;
+
         case 8  :
             cases[i] = new F_Case(TYPE_CASE::SAUT,50);
             break;
@@ -68,6 +72,10 @@ void F_Plateau::generationClassique()
         // Serpent
         case 16 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,6);
+            break;
+
+        case 17 :
+            cases[i] = new F_Case(TYPE_CASE::REJOUER);
             break;
 
         // Serpent
@@ -82,6 +90,14 @@ void F_Plateau::generationClassique()
         // Serpent
         case 32 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,6);
+            break;
+
+        case 37  :
+            cases[i] = new F_Case(TYPE_CASE::PASSE);
+            break;
+
+        case 39 :
+            cases[i] = new F_Case(TYPE_CASE::REJOUER);
             break;
 
         case 40 :
@@ -101,6 +117,10 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::SAUT,70);
             break;
 
+        case 53 :
+            cases[i] = new F_Case(TYPE_CASE::REJOUER);
+            break;
+
         // Serpent
         case 58 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,24);
@@ -108,6 +128,10 @@ void F_Plateau::generationClassique()
 
         case 68 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,94);
+            break;
+
+        case 69 :
+            cases[i] = new F_Case(TYPE_CASE::PASSE);
             break;
 
         case 78 :
@@ -128,9 +152,17 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::SAUT,36);
             break;
 
+        case 91 :
+            cases[i] = new F_Case(TYPE_CASE::REJOUER);
+            break;
+
         // Serpent
         case 92 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,72);
+            break;
+
+        case 95 :
+            cases[i] = new F_Case(TYPE_CASE::PASSE);
             break;
 
         // Serpent
