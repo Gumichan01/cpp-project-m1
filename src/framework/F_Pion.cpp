@@ -3,7 +3,7 @@
 
 int F_Pion::id_compteur = 1;
 
-F_Pion::F_Pion(int idJ) : id(id_compteur++),idJoueur(idJ), position(-1)
+F_Pion::F_Pion(int idJ) : id(id_compteur++),idJoueur(idJ), position(0)
 {
     // Empty
 }
