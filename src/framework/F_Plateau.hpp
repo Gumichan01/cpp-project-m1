@@ -20,6 +20,8 @@ class F_Plateau
     F_Plateau(F_Plateau& p);
     F_Plateau& operator =(F_Plateau p);
 
+    void generationClassique();                 /**< Définir le plateau spécifié dans le sujet */
+
     ~F_Plateau();
 
 public:
@@ -36,7 +38,6 @@ public:
     static F_Plateau * getInstance();           /**< Renvoie le singleton */
     static void detruire();                     /**< Détruit le singleton */
 
-    void generationClassique();                 /**< Définir le plateau spécifié dans le sujet */
     //void generationProcedural();              /**< Permet de générer un plateau aléatoirement */
     unsigned int taille();                      /**< Renvoie sa taille */
     F_Case& operator [](unsigned int index);    /**< Acces à une case */
