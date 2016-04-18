@@ -13,7 +13,7 @@ que le fichier exécutable de démonstration *jeu-demo*.
 
 
 
-## Documentation ## 
+## Documentation ##
 
 
 Il est possible d'obtenir une documentation du framework au format HTML en 
