@@ -59,7 +59,7 @@ public:
     *
     *   Enleve un pion
     *
-    *   @param p Le pion à enlever
+    *   @param idPion Le pion à enlever
     */
     void enleverPion(int idPion);
 
@@ -87,4 +87,3 @@ public:
 };
 
 #endif // CASE_HPP
-

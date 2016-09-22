@@ -25,7 +25,6 @@ public:
     *
     *   @param n Nom du joueur
     *   @param nbPions Nombre de pions à donner au joueur
-    *   @param sc Score du joueur
     */
     F_Joueur(std::string n, int nbPions = 1);
 

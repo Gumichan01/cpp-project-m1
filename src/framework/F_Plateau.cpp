@@ -188,7 +188,7 @@ void F_Plateau::generationClassique()
 
 unsigned int F_Plateau::taille()
 {
-    return cases.size();
+    return static_cast<unsigned int>(cases.size());
 }
 
 
@@ -198,4 +198,3 @@ F_Case& F_Plateau::operator [](unsigned int index)
 {
     return *(this->cases.at(index));
 }
-
