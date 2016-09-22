@@ -1,4 +1,3 @@
-
 #include "F_Case.hpp"
 #include "F_Plateau.hpp"
 
@@ -69,7 +68,7 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::SAUT,30);
             break;
 
-        // Serpent
+            // Serpent
         case 16 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,6);
             break;
@@ -78,7 +77,7 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::REJOUER);
             break;
 
-        // Serpent
+            // Serpent
         case 22 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,20);
             break;
@@ -87,7 +86,7 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::SAUT,74);
             break;
 
-        // Serpent
+            // Serpent
         case 32 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,6);
             break;
@@ -108,7 +107,7 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::SAUT,64);
             break;
 
-        // Serpent
+            // Serpent
         case 48 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,28);
             break;
@@ -121,7 +120,7 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::REJOUER);
             break;
 
-        // Serpent
+            // Serpent
         case 58 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,24);
             break;
@@ -138,7 +137,7 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::SAUT,100);
             break;
 
-        // Serpent
+            // Serpent
         case 80 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,42);
             break;
@@ -147,7 +146,7 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::SAUT,96);
             break;
 
-        // Serpent
+            // Serpent
         case 86 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,36);
             break;
@@ -156,7 +155,7 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::REJOUER);
             break;
 
-        // Serpent
+            // Serpent
         case 92 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,72);
             break;
@@ -165,7 +164,7 @@ void F_Plateau::generationClassique()
             cases[i] = new F_Case(TYPE_CASE::PASSE);
             break;
 
-        // Serpent
+            // Serpent
         case 98 :
             cases[i] = new F_Case(TYPE_CASE::SAUT,62);
             break;

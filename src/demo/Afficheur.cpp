@@ -66,7 +66,7 @@ void AfficheurMultiPions::afficherPositionJoueur(F_Joueur& j)
     cout << " | " << j.getNom() << " a des pions au positions suivantes " << endl;
     cout << " -> ";
 
-    for(F_Pion p : j.getPions())
+for(F_Pion p : j.getPions())
     {
         cout << p.getPosition() << " ";
     }

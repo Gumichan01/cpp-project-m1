@@ -1,5 +1,4 @@
 
-
 #include "F_Joueur.hpp"
 #include "F_Pion.hpp"
 

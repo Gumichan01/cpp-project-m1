@@ -49,7 +49,7 @@ bool JoueurIA::gagne()
 {
     F_Plateau *plateau = F_Plateau::getInstance();
 
-    for(F_Pion p : pions)
+for(F_Pion p : pions)
     {
         if(p.getPosition() != static_cast<int>(plateau->taille()) -1)
             return false;
