@@ -7,10 +7,10 @@
 #
 
 # Compilateur
-CC=g++
-CFLAGS=-Wall --std=c++11 -g
+CC=clang++
+CFLAGS=-Weverything --std=c++11 -g
 
-# Objets 
+# Objets
 SRC=main.cpp JeuSerpentEchelle.cpp Joueur.cpp Afficheur.cpp JeuPedago.cpp \
 JeuMultiPion.cpp
 OBJS=$(SRC:.cpp=.o)
@@ -80,5 +80,3 @@ clean:
 clear: clean
 	@echo " = Nettoyage du repertoire "$(TEST_PATH)
 	@rm -f $(TEST_EXE)
-
-

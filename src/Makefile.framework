@@ -6,10 +6,10 @@
 #
 
 # Compilateur
-CC=g++
-CFLAGS=-Wall --std=c++11 -g
+CC=clang++
+CFLAGS=-Weverything --std=c++11 -g
 
-# Objets 
+# Objets
 SRC=F_Afficheur.cpp F_Jeu.cpp F_Plateau.cpp F_Joueur.cpp F_Case.cpp F_Pion.cpp
 OBJS=$(SRC:.cpp=.o)
 
@@ -78,6 +78,3 @@ clean:
 clear: clean
 	@echo " = Nettoyage du repertoire "$(FRAMEWORK_PATH)
 	@rm -f $(LIB_TARGET)
-
-
-
